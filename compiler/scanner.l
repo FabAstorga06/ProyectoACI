@@ -22,14 +22,18 @@
 [rR][1][6]			return REG16;
 
 [ \t\n | ,]			;
-[\(|\)]					return PARENTESIS;
+[\(|\)]					;
 [1-9][0-9]*			return IMMEDIATE;
 \.							return INDICATOR;
 
 "add"						return ADD;
 "sub"						return SUB;
 "lw"						return LW;
+"sw"						return SW;
 "j"							return J;
+"bne"						return BNE;
+
+"loop"					return LOOP;
 
 %%
 

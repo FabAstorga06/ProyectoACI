@@ -26,9 +26,7 @@
     los componentes de las instrucciones */
 
 #define IMMEDIATE 17
-#define DIRECTION 18
 #define INDICATOR 100
-#define PARENTESIS 19
 
 /* Códigos de operación establecidos */
 
@@ -41,3 +39,6 @@
 //Formato J
 #define J 24
 #define BNE 25
+
+/* Posiciones de memoria */
+#define LOOP 420

@@ -61,22 +61,6 @@ int* swap(int *data, int pos1, int pos2, int pos3) {
 }
 
 /*************************************************************************/
-/* Elimina parentesis de las instrucciones de formato I */
-
-int* deleteParent(int* data) {
-  int* tmp_data = (int*) malloc(sizeof(int) * R_LENGTH);
-  unsigned int index = 0;
-  for (int i = 0; i < I_LENGTH; i++) {
-    if (data[i] != PARENTESIS) {
-       tmp_data[index] = data[i];
-       index++;
-			 printf("indice: %d\n", i);
-    }
-  }
-  return tmp_data;
-}
-
-/*************************************************************************/
 /* Funciones para analizar cada uno de los tipos de instrucciones propuestos */
 
 /* Analiza instruccion de formato R */
@@ -85,7 +69,7 @@ void analizeInstructionR(int* data) {
   /* Ordena tokens en formato R */
   tmp_data = swap(data, 1, 2, 3);
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* r_instr = (char*) malloc( sizeof(char) * 14);
+  char* r_instr = (char*) malloc( sizeof(char));
 
   for (int i = 0; i < R_LENGTH; i++) {
     if (i == 0) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
@@ -98,15 +82,12 @@ void analizeInstructionR(int* data) {
 /* Analiza instruccion de formato I */
 void analizeInstructionI(int* data) {
   int* tmp_data;
-  /* Elimina token parentesis */
-  tmp_data = deleteParent(data); 
   /* Ordena tokens en formato I */
   tmp_data = swap(data, 1, 3, 2);
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* i_instr = (char*) malloc( sizeof(char) * 27);
+  char* i_instr = (char*) malloc( sizeof(char));
 
   for (int i = 0; i < R_LENGTH; i++) {
-		printf("tmp data: %d\n", tmp_data[i]);
     if (i == 0) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 0, 5) );
     else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 13, 18) );
     else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -2, 3) );
@@ -117,5 +98,14 @@ void analizeInstructionI(int* data) {
 
 /* Analiza instruccion de formato J */
 void analizeInstructionJ(int* data) {
+  /* Convierte a binario y mete la instruccion al archivo maquina */
+  char* j_instr = (char*) malloc( sizeof(char));
+
+  for (int i = 0; i < J_LENGTH; i++) {
+    if (i == 0) j_instr = concatenate(j_instr, convertBinary(data[i], 0, 5) );
+    else j_instr = concatenate(j_instr, convertBinary(data[i], 21, 23) );
+  }
+  addInstructionToFile(j_instr);
+  free(j_instr);
 
 }

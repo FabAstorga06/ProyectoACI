@@ -1,3 +1,3 @@
-add r1, r2, r3.
-sub r8, r5, r6.
-lw r5, 8(r7).
+sub r1, r2, r9.
+lw r5, 66(r4).
+j loop.

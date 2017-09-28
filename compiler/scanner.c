@@ -12,7 +12,7 @@ int main(void)
 {
 	int ntoken, index = 0;
 	ntoken = yylex();
-	int* data = (int*) malloc(sizeof(int) * I_LENGTH);
+	int* data = (int*) malloc(sizeof(int) * R_LENGTH);
 
 	while(ntoken) {
 		printf("Token %d\n", ntoken);
@@ -36,7 +36,7 @@ int main(void)
 				break;
 			}
 			/* Vacia el arreglo con los datos(tokens) de la instruccion */
-			memset(data, '\0', (I_LENGTH * sizeof(int)));
+			memset(data, '\0', (R_LENGTH * sizeof(int)));
 			index = 0;
 		}
 

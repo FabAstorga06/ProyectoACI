@@ -1,4 +1,4 @@
-scanner: scanner.c scanner.h utils.c lex.yy.c
+scanner: scanner.c constants.h utils.c lex.yy.c
 	cc scanner.c lex.yy.c -ll -o scanner
 
 lex.yy.c: scanner.l

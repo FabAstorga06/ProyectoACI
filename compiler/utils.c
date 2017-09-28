@@ -2,18 +2,20 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
-#include "scanner.h"
+#include "constants.h"
 
 /*************************************************************************/
 /* Convierte un numero de base decimal a base binaria */
 
-char* convertBinary(unsigned int num, int pivot) {
+char* convertBinary(unsigned int num, int pivot, int digits) {
 	unsigned int index = 0;
 	unsigned int bit = 1U << (sizeof(unsigned int) + pivot);
-	char* bin = (char*) malloc( sizeof(char) * bit);
+	char* bin = (char*) malloc( sizeof(char) * digits);
 
-	while ( bit ){
+	/***AQUI ESTA EL ERROR****/
+	while ( bit ) {
 			bin[index] = (num & bit) ? '1' : '0';
+			//printf("binaria longitud: %d\n", strlen(bin));
 			bit >>= 1;
 			index++;
 	}
@@ -25,7 +27,7 @@ char* convertBinary(unsigned int num, int pivot) {
 
 char* concatenate(const char *s1, const char *s2)
 {
-    char *result = malloc(strlen(s1) + strlen(s2) + 1);
+    char *result = (char*) malloc(sizeof(char) * (strlen(s1) + strlen(s2)));
     strcpy(result, s1);
     strcat(result, s2);
     return result;
@@ -62,13 +64,13 @@ int* swap(int *data, int pos1, int pos2, int pos3) {
 /* Elimina parentesis de las instrucciones de formato I */
 
 int* deleteParent(int* data) {
-  int* tmp_data;
-  int index = 0;
+  int* tmp_data = (int*) malloc(sizeof(int) * R_LENGTH);
+  unsigned int index = 0;
   for (int i = 0; i < I_LENGTH; i++) {
-    if (i != 3 || i != 5) {
+    if (data[i] != PARENTESIS) {
        tmp_data[index] = data[i];
-       printf("dato: %d\n", data[i]);
        index++;
+			 printf("indice: %d\n", i);
     }
   }
   return tmp_data;
@@ -83,10 +85,11 @@ void analizeInstructionR(int* data) {
   /* Ordena tokens en formato R */
   tmp_data = swap(data, 1, 2, 3);
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* r_instr = (char*) malloc( sizeof(char) * INSTR);
+  char* r_instr = (char*) malloc( sizeof(char) * 14);
+
   for (int i = 0; i < R_LENGTH; i++) {
-    if (i == 0) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0) );
-    else r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -2) );
+    if (i == 0) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
+    else r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -2, 3) );
   }
   addInstructionToFile(r_instr);
   free(r_instr);
@@ -96,15 +99,17 @@ void analizeInstructionR(int* data) {
 void analizeInstructionI(int* data) {
   int* tmp_data;
   /* Elimina token parentesis */
-  tmp_data = deleteParent(data);
+  tmp_data = deleteParent(data); 
   /* Ordena tokens en formato I */
   tmp_data = swap(data, 1, 3, 2);
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* i_instr = (char*) malloc( sizeof(char) * INSTR);
+  char* i_instr = (char*) malloc( sizeof(char) * 27);
+
   for (int i = 0; i < R_LENGTH; i++) {
-    if (i == 0) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 0) );
-    else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 11) );
-    else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -2) );
+		printf("tmp data: %d\n", tmp_data[i]);
+    if (i == 0) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 0, 5) );
+    else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 13, 18) );
+    else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -2, 3) );
   }
   addInstructionToFile(i_instr);
   free(i_instr);

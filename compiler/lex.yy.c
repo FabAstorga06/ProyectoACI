@@ -487,7 +487,7 @@ int yy_flex_debug = 0;
 char *yytext;
 #line 1 "scanner.l"
 #line 2 "scanner.l"
-#include "scanner.h"
+#include "constants.h"
 #line 492 "lex.yy.c"
 
 #define INITIAL 0

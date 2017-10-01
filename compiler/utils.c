@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
@@ -99,7 +99,7 @@ void analizeInstructionI(int* data) {
 /* Analiza instruccion de formato J */
 void analizeInstructionJ(int* data) {
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* j_instr = (char*) malloc( sizeof(char));
+  char* j_instr = (char*) malloc( sizeof(char) * INSTR);
 
   for (int i = 0; i < J_LENGTH; i++) {
     if (i == 0) j_instr = concatenate(j_instr, convertBinary(data[i], 0, 5) );

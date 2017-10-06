@@ -75,6 +75,9 @@ void analizeInstructionR(int* data) {
     if (i == 0) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
     else r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -2, 3) );
   }
+
+/* INCLUIR EL SHIFT AMOUNT Y LA OTRA VARA */
+
   addInstructionToFile(r_instr);
   free(r_instr);
 }

@@ -26,19 +26,21 @@
     los componentes de las instrucciones */
 
 #define IMMEDIATE 17
-#define INDICATOR 100
+#define INDICATOR 4207438
 
 /* Códigos de operación establecidos */
 
 //Formato R
 #define ADD 20
 #define SUB 21
+#define SLL 22
+#define SRL 23
 //Formato I
-#define LW 22
-#define SW 23
+#define LW 24
+#define SW 25
 //Formato J
-#define J 24
-#define BNE 25
+#define J 26
+#define BNE 27
 
 /* Posiciones de memoria */
 #define LOOP 420

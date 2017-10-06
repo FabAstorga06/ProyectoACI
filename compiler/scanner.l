@@ -28,6 +28,8 @@
 
 "add"						return ADD;
 "sub"						return SUB;
+"sll"						return SLL;
+"srl"						return SRL;
 "lw"						return LW;
 "sw"						return SW;
 "j"							return J;

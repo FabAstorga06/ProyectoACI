@@ -20,7 +20,7 @@ int main(void)
 		/* Se verifica si el token es un indicador */
 		if (ntoken == INDICATOR) {
 			/* Formato R */
-			if (ADD <= data[0] && data[0] <= SUB) {
+			if (ADD <= data[0] && data[0] <= SRL) {
 				analizeInstructionR(data);
 			}
 			/* Formato I */
@@ -41,7 +41,8 @@ int main(void)
 		}
 
 		else {
-			data[index] = ntoken;
+			if (ntoken == IMMEDIATE) { data[index] = atoi(yytext); }
+			else { data[index] = ntoken; }
 			index++;
 		}
 		ntoken = yylex();

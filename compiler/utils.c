@@ -50,13 +50,12 @@ void addInstructionToFile(char* instruction){
 /*************************************************************************/
 /* Funcion que intercambia valores entre datos */
 
-int* swap(int *data, int pos1, int pos2, int pos3) {
+int* swap(int *data, int pos1, int pos2) {
   int tmp = data[pos1];
   data[pos1] = data[pos2];
   data[pos2] = tmp;
   tmp = data[pos2];
-  data[pos2] = data[pos3];
-  data[pos3] = tmp;
+
   return data;
 }
 
@@ -66,17 +65,36 @@ int* swap(int *data, int pos1, int pos2, int pos3) {
 /* Analiza instruccion de formato R */
 void analizeInstructionR(int* data) {
   int* tmp_data;
-  /* Ordena tokens en formato R */
-  tmp_data = swap(data, 1, 2, 3);
-  /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* r_instr = (char*) malloc( sizeof(char));
-
-  for (int i = 0; i < R_LENGTH; i++) {
-    if (i == 0) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
-    else r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -2, 3) );
+  char* r_instr = (char*) malloc( sizeof(char) * INSTR );
+  /* Instrucciones SLL, SRL, ... */
+  if (SLL <= data[0] && data[0] <= SRL) {
+    /* Ordena tokens en formato R */
+    tmp_data = swap(data, 1, 2);
+    /* Convierte a binario y mete la instruccion al archivo maquina */
+    for (int i = 0; i < R_LENGTH; i++) {
+      printf("num: %d\n", tmp_data[i]);
+      if (i == 0 || i == 3) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
+      else if (i == 1) {
+        r_instr = concatenate(r_instr, "0000" ); /* rs no existe */
+        r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -1, 4) );
+      }
+      else r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -1, 4) );
+    }
+    r_instr = concatenate(r_instr, "0000000000" ); /* agrega funct */
   }
-
-/* INCLUIR EL SHIFT AMOUNT Y LA OTRA VARA */
+  /*************************************************************/
+  /* Instrucciones ADD, SUB, ... */
+  else if (ADD <= data[0] && data[0] <= SUB) {
+    /* Ordena tokens en formato R */
+    tmp_data = swap(data, 1, 2);
+    tmp_data = swap(data, 2, 3);
+    /* Convierte a binario y mete la instruccion al archivo maquina */
+    for (int i = 0; i < R_LENGTH; i++) {
+      if (i == 0) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
+      else r_instr = concatenate(r_instr, convertBinary(tmp_data[i], -1, 4) );
+    }
+    r_instr = concatenate(r_instr, "000000000000000" );
+  }
 
   addInstructionToFile(r_instr);
   free(r_instr);
@@ -86,14 +104,15 @@ void analizeInstructionR(int* data) {
 void analizeInstructionI(int* data) {
   int* tmp_data;
   /* Ordena tokens en formato I */
-  tmp_data = swap(data, 1, 3, 2);
+  tmp_data = swap(data, 1, 3);
+  tmp_data = swap(data, 2, 3);
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* i_instr = (char*) malloc( sizeof(char));
+  char* i_instr = (char*) malloc( sizeof(char) * INSTR);
 
   for (int i = 0; i < R_LENGTH; i++) {
     if (i == 0) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 0, 5) );
-    else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 13, 18) );
-    else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -2, 3) );
+    else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 14, 19) );
+    else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -1, 4) );
   }
   addInstructionToFile(i_instr);
   free(i_instr);
@@ -106,7 +125,7 @@ void analizeInstructionJ(int* data) {
 
   for (int i = 0; i < J_LENGTH; i++) {
     if (i == 0) j_instr = concatenate(j_instr, convertBinary(data[i], 0, 5) );
-    else j_instr = concatenate(j_instr, convertBinary(data[i], 21, 23) );
+    else j_instr = concatenate(j_instr, convertBinary(data[i], 22, 27) );
   }
   addInstructionToFile(j_instr);
   free(j_instr);

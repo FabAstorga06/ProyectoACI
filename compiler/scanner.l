@@ -28,12 +28,21 @@
 
 "add"						return ADD;
 "sub"						return SUB;
+"and"						return AND;
+"or"						return OR;
+"nor"						return NOR;
 "sll"						return SLL;
 "srl"						return SRL;
-"lw"						return LW;
-"sw"						return SW;
-"j"							return J;
+"mult"					return MULT;
+"div"						return DIV;
+
+"beq"						return BEQ;
 "bne"						return BNE;
+"lw"						return LW;
+"lb"						return LB;
+"sw"						return SW;
+
+"j"							return J;
 
 "loop"					return LOOP;
 

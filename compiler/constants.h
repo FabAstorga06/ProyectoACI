@@ -27,20 +27,31 @@
 
 #define IMMEDIATE 17
 #define INDICATOR 4207438
+#define ERR 404
 
 /* Códigos de operación establecidos */
 
 //Formato R
-#define ADD 20
-#define SUB 21
-#define SLL 22
-#define SRL 23
+#define ADD 0
+#define SUB 1
+#define AND 2
+#define OR 3
+#define NOR 4
+#define SLL 5
+#define SRL 6
+#define MULT 7
+#define DIV 8
 //Formato I
-#define LW 24
-#define SW 25
+#define BEQ 9
+#define BNE 10
+#define LW 11
+#define LB 12
+#define SW 13
 //Formato J
-#define J 26
-#define BNE 27
+#define J 14
+//NOP
+#define NOP 15
+
 
 /* Posiciones de memoria */
 #define LOOP 420

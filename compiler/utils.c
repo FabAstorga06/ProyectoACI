@@ -67,12 +67,11 @@ void analizeInstructionR(int* data) {
   int* tmp_data;
   char* r_instr = (char*) malloc( sizeof(char) * INSTR );
   /* Instrucciones SLL, SRL, ... */
-  if (SLL <= data[0] && data[0] <= SRL) {
+  if (data[0] == SLL || data[0] == SRL) {
     /* Ordena tokens en formato R */
     tmp_data = swap(data, 1, 2);
     /* Convierte a binario y mete la instruccion al archivo maquina */
     for (int i = 0; i < R_LENGTH; i++) {
-      printf("num: %d\n", tmp_data[i]);
       if (i == 0 || i == 3) r_instr = concatenate(r_instr, convertBinary(tmp_data[i], 0, 5) );
       else if (i == 1) {
         r_instr = concatenate(r_instr, "0000" ); /* rs no existe */
@@ -84,7 +83,7 @@ void analizeInstructionR(int* data) {
   }
   /*************************************************************/
   /* Instrucciones ADD, SUB, ... */
-  else if (ADD <= data[0] && data[0] <= SUB) {
+  else {
     /* Ordena tokens en formato R */
     tmp_data = swap(data, 1, 2);
     tmp_data = swap(data, 2, 3);
@@ -102,18 +101,30 @@ void analizeInstructionR(int* data) {
 
 /* Analiza instruccion de formato I */
 void analizeInstructionI(int* data) {
-  int* tmp_data;
-  /* Ordena tokens en formato I */
-  tmp_data = swap(data, 1, 3);
-  tmp_data = swap(data, 2, 3);
   /* Convierte a binario y mete la instruccion al archivo maquina */
   char* i_instr = (char*) malloc( sizeof(char) * INSTR);
-
-  for (int i = 0; i < R_LENGTH; i++) {
-    if (i == 0) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 0, 5) );
-    else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 14, 19) );
-    else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -1, 4) );
+  /* Instrucciones BEQ, BNE, ... */
+  if (data[0] == BEQ || data[0] == BNE) {
+    for (int i = 0; i < R_LENGTH; i++) {
+      if (i == 0) i_instr = concatenate(i_instr, convertBinary(data[i], 0, 5) );
+      else if (i == 3) i_instr = concatenate(i_instr, convertBinary(data[i], 14, 19) );
+      else i_instr = concatenate(i_instr, convertBinary(data[i], -1, 4) );
+    }
   }
+  /*************************************************************/
+  /* Instrucciones LW, SW, ... */
+  else {
+    int* tmp_data;
+    /* Ordena tokens en formato I */
+    tmp_data = swap(data, 1, 3);
+    tmp_data = swap(data, 2, 3);
+    for (int i = 0; i < R_LENGTH; i++) {
+      if (i == 0) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 0, 5) );
+      else if (i == 3) i_instr = concatenate(i_instr, convertBinary(tmp_data[i], 14, 19) );
+      else i_instr = concatenate(i_instr, convertBinary(tmp_data[i], -1, 4) );
+    }
+  }
+
   addInstructionToFile(i_instr);
   free(i_instr);
 }
@@ -130,4 +141,13 @@ void analizeInstructionJ(int* data) {
   addInstructionToFile(j_instr);
   free(j_instr);
 
+}
+
+/* Crea la instrucción NOP para realizar un stall */
+void noOperation() {
+  char* instruction = (char*) malloc( sizeof(char) * INSTR);
+  concatenate(instruction, "11111" );
+  concatenate(instruction, "000000000000000000000000000" );
+  addInstructionToFile(instruction);
+  free(instruction);
 }

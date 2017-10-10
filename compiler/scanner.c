@@ -20,16 +20,20 @@ int main(void)
 		/* Se verifica si el token es un indicador */
 		if (ntoken == INDICATOR) {
 			/* Formato R */
-			if (ADD <= data[0] && data[0] <= SRL) {
+			if (ADD <= data[0] && data[0] <= DIV) {
 				analizeInstructionR(data);
 			}
 			/* Formato I */
-			else if (LW <= data[0] && data[0] <= SW) {
+			else if (BEQ <= data[0] && data[0] <= SW) {
 				analizeInstructionI(data);
 			}
 			/* Formato J */
-			else if (J <= data[0] && data[0] <= BNE) {
+			else if (data[0] == J) {
 				analizeInstructionJ(data);
+			}
+			/* STALL */
+			else if (data[0] == NOP) {
+				noOperation();
 			}
 			else {
 				printf("This instruction doesn't exit, in line %d\n",yylineno);

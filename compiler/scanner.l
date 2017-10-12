@@ -25,6 +25,7 @@
 [\(|\)]					;
 [1-9][0-9]*			return IMMEDIATE;
 \.							return INDICATOR;
+"nop"						return NOP;
 
 "add"						return ADD;
 "sub"						return SUB;
@@ -44,7 +45,8 @@
 
 "j"							return J;
 
-"loop"					return LOOP;
+[a-zA-Z]+				return TARGET;
+\:							return TP;
 
 %%
 

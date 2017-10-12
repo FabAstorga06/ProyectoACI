@@ -27,7 +27,8 @@
 
 #define IMMEDIATE 17
 #define INDICATOR 4207438
-#define ERR 404
+#define TARGET 421
+#define TP 420
 
 /* Códigos de operación establecidos */
 
@@ -50,8 +51,4 @@
 //Formato J
 #define J 14
 //NOP
-#define NOP 15
-
-
-/* Posiciones de memoria */
-#define LOOP 420
+#define NOP 666

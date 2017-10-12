@@ -27,7 +27,7 @@ char* convertBinary(unsigned int num, int pivot, int digits) {
 
 char* concatenate(const char *s1, const char *s2)
 {
-    char *result = (char*) malloc(sizeof(char) * (strlen(s1) + strlen(s2)));
+    char* result = (char*) malloc(sizeof(char) * (strlen(s1) + strlen(s2)));
     strcpy(result, s1);
     strcat(result, s2);
     return result;
@@ -145,9 +145,5 @@ void analizeInstructionJ(int* data) {
 
 /* Crea la instrucción NOP para realizar un stall */
 void noOperation() {
-  char* instruction = (char*) malloc( sizeof(char) * INSTR);
-  concatenate(instruction, "11111" );
-  concatenate(instruction, "000000000000000000000000000" );
-  addInstructionToFile(instruction);
-  free(instruction);
+  addInstructionToFile("11111000000000000000000000000000");
 }

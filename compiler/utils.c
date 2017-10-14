@@ -60,6 +60,33 @@ int* swap(int *data, int pos1, int pos2) {
 }
 
 /*************************************************************************/
+/* Funcion que enceuntra una direccion de memoria */
+
+char* deleteChar(char* param, int len) {
+  char* tmp_param = (char*) malloc(sizeof(char) * 15);
+  for (int i = 0; i < len; i++) {
+    if(param[i] == ':' || param[i] == '.') break;
+    else tmp_param[i] = param[i];
+  }
+  return tmp_param;
+}
+
+int findAddress(char* target, char*** mem_adrrs) {
+  int address = 0;
+  char* tmp_target = deleteChar(target, 15);
+  char* tmp_adrrs;
+  for (int i = 0; i < 10; i++) {
+    tmp_adrrs = deleteChar(mem_adrrs[i][0], 15);
+    int ret = strcmp(tmp_adrrs, tmp_target);
+    if (ret == 0) {
+        address = atoi(mem_adrrs[i][1]);
+        break;
+    }
+  }
+  return address;
+}
+
+/*************************************************************************/
 /* Funciones para analizar cada uno de los tipos de instrucciones propuestos */
 
 /* Analiza instruccion de formato R */
@@ -114,7 +141,7 @@ void analizeInstructionI(int* data) {
   /*************************************************************/
   /* Instrucciones LW, SW, ... */
   else {
-    int* tmp_data;
+    int* tmp_data = (int*) malloc(sizeof(int) * R_LENGTH);
     /* Ordena tokens en formato I */
     tmp_data = swap(data, 1, 3);
     tmp_data = swap(data, 2, 3);
@@ -130,20 +157,22 @@ void analizeInstructionI(int* data) {
 }
 
 /* Analiza instruccion de formato J */
-void analizeInstructionJ(int* data) {
+void analizeInstructionJ(int* data, int address) {
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* j_instr = (char*) malloc( sizeof(char) * INSTR);
-
-  for (int i = 0; i < J_LENGTH; i++) {
-    if (i == 0) j_instr = concatenate(j_instr, convertBinary(data[i], 0, 5) );
-    else j_instr = concatenate(j_instr, convertBinary(data[i], 22, 27) );
-  }
+  char* j_instr = (char*) malloc( sizeof(char)* INSTR);
+  /*opcode*/
+  j_instr = concatenate(j_instr, convertBinary(data[0], 0, 5) );
+  /*direccion*/
+  j_instr = concatenate(j_instr, convertBinary(address, 22, 27) );
   addInstructionToFile(j_instr);
   free(j_instr);
-
 }
 
 /* Crea la instrucción NOP para realizar un stall */
 void noOperation() {
-  addInstructionToFile("11111000000000000000000000000000");
+  char* instr = (char*) malloc(sizeof(char) * INSTR);
+  instr = concatenate(instr, "11111" );
+  instr = concatenate(instr, "000000000000000000000000000" );
+  addInstructionToFile(instr);
+  free(instr);
 }

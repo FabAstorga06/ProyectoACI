@@ -1,9 +1,8 @@
 sub r1, r2, r9.
 sll r4, r3, 5.
-nop.
-lw r5, 66(r4).
 and r11, r12, r15.
-loop:
 nop.
+sw r4, 87(r1).
+loop:
 beq r2, r8, 32.
 j loop.

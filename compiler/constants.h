@@ -33,22 +33,22 @@
 /* Códigos de operación establecidos */
 
 //Formato R
-#define ADD 0
-#define SUB 1
-#define AND 2
-#define OR 3
-#define NOR 4
-#define SLL 5
-#define SRL 6
-#define MULT 7
-#define DIV 8
+#define ADD 1
+#define SUB 2
+#define AND 3
+#define OR 4
+#define NOR 5
+#define SLL 6
+#define SRL 7
+#define MULT 8
+#define DIV 9
 //Formato I
-#define BEQ 9
-#define BNE 10
-#define LW 11
-#define LB 12
-#define SW 13
+#define BEQ 10
+#define BNE 11
+#define LW 12
+#define LB 13
+#define SW 14
 //Formato J
-#define J 14
+#define J 15
 //NOP
 #define NOP 666

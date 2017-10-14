@@ -27,7 +27,9 @@ int main(void)
 
 	while(ntoken) {
 		printf("Token %d\n", ntoken);
-		if (ntoken == TARGET) word = yytext;
+		if (ntoken == TARGET) {
+      word = yytext;
+    }
 
 		/* Se verifica si el token es un indicador */
 		if (ntoken == INDICATOR) {
@@ -42,7 +44,9 @@ int main(void)
 			/* Formato J */
 			else if (data[0] == J) {
 				/*****buscar address de la etiqueta y pasar por param*/
-				analizeInstructionJ(data);
+				printf("target: %s\n", word);
+        int addr = findAddress(word, mem_adrrs);
+				analizeInstructionJ(data, addr);
 			}
 			/* STALL */
 			else if (data[0] == NOP) {
@@ -65,10 +69,12 @@ int main(void)
   		sprintf(add_str, "%d", mem_addr);
 			mem_adrrs[target][0] = word;
 			mem_adrrs[target][1] = add_str;
-			printf("etiqueta1: %s\n",word);
-			printf("etiqueta2: %s\n",mem_adrrs[target][0]);
-			printf("direccion: %s\n",mem_adrrs[target][1]);
 			target++;
+      memset(data, '\0', (R_LENGTH * sizeof(int)));
+      printf("target: %s\n", word);
+      printf("direccion: %s\n", add_str);
+			index = 0;
+			line++;
 		}
 		else {
 			if (ntoken == IMMEDIATE) { data[index] = atoi(yytext); }

@@ -7,3 +7,10 @@ Para ejecutar el compilador, abra una terminal en Linux, ubíquese en la carpeta
 - $ make
 - $ ./scanner <config.in
 
+Posteriormente, para generar un archivo compatible con el funcionamiento del procesador (.hex file), introduzca los siguientes comandos: 
+
+- $ cd ihex-master
+- $ ./bin2ihex <machine_code.bin >machine_code.hex
+
+
+

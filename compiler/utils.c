@@ -38,7 +38,7 @@ char* concatenate(const char *s1, const char *s2)
 
 void addInstructionToFile(char* instruction){
 	FILE* _file;
-	char* name_file = "machine_code.txt";
+	char* name_file = "ihex-master/machine_code.bin";
 
 	_file = fopen(name_file, "a");
 	if (_file == NULL) return;

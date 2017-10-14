@@ -38,7 +38,7 @@ int main(void)
 				analizeInstructionR(data);
 			}
 			/* Formato I */
-			else if (BEQ <= data[0] && data[0] <= SW) {
+			else if (BEQ <= data[0] && data[0] <= ADDI) {
 				analizeInstructionI(data);
 			}
 			/* Formato J */

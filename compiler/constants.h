@@ -48,7 +48,8 @@
 #define LW 12
 #define LB 13
 #define SW 14
+#define ADDI 15
 //Formato J
-#define J 15
+#define J 16
 //NOP
 #define NOP 666

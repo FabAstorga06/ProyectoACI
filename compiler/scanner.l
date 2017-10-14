@@ -28,6 +28,7 @@
 "nop"						return NOP;
 
 "add"						return ADD;
+"addi"					return ADDI;
 "sub"						return SUB;
 "and"						return AND;
 "or"						return OR;

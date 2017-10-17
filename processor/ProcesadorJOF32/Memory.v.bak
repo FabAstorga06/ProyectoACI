@@ -1,0 +1,14 @@
+module Memory (
+					result_alu,
+					in_B,
+					dir_wb,
+					mem_out,
+					mem_wr
+					);
+					
+					
+
+					
+			
+		
+endmodule

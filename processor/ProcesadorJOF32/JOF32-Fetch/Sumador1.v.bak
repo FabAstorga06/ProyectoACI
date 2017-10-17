@@ -1,0 +1,10 @@
+`timescale 1ns / 1ps
+
+module sumador1 (pc_in, pc_out);
+
+input wire pc_in;
+output wire pc_out;
+
+assign pc_out <= pc_in + 1
+
+endmodule

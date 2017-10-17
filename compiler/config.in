@@ -1,8 +1,28 @@
-sub r1, r2, r9.
-sll r4, r3, 5.
-and r11, r12, r15.
-nop.
-sw r4, 87(r1).
-loop:
-beq r2, r8, 32.
-j loop.
+addi R0, R0, 0.
+addi R1, R1, 31250.
+addi R13, R13, 2.
+addi R4, R4, 1.
+comprobacionCuenta:
+beq R13, R4, contar.
+eof:
+addi R12, R14, 31250.
+beq R0, R12, fin.
+comprobacionIguales:
+lb R2, 0(R0).
+lb R3, 0(R1).
+bne R2, R3, diferentes.
+iguales:
+addi R1, R1, 1.
+addi R0, R0, 1.
+addi R4, R4, 1.
+beq R13, R4, contar.
+j eof.
+contar:
+addi R15, R15, 1.
+addi R4, R14, 1.
+addi R1, R14, 31250.
+diferentes:
+addi R0, R0, 1.
+addi R1, R14, 31250.
+j eof.
+fin:

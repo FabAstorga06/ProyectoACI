@@ -1,0 +1,578 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/Javier/Documents/Altera/ProcesadorJOF32/simulation/modelsim
+valu
+Z1 !s110 1508240624
+!i10b 1
+!s100 MlcQ[<TgQTzeOGI>7I7dR3
+I?;?TdcTKYZQ?mc83?aUfl3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1508138594
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v
+L0 3
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1508240624.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v|
+!i113 1
+Z5 o-work ./work
+Z6 tCvgOpt 0
+vbranch_control
+R1
+!i10b 1
+!s100 XY@R<00X^]mH;_;Qh4LmE2
+Iooha:_z0H4DeUSiPCCCBQ2
+R2
+R0
+w1508138588
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/branch_control.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/branch_control.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/branch_control.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/branch_control.v|
+!i113 1
+R5
+R6
+vcontrol
+Z7 !s110 1508240623
+!i10b 1
+!s100 P]Bc=FQ<@<jkh>K`SFj^J2
+I[1c`I=jZY>2iJ10O:G?2z1
+R2
+R0
+w1508125362
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/control.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/control.v
+L0 1
+R3
+r1
+!s85 0
+31
+Z8 !s108 1508240623.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/control.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/control.v|
+!i113 1
+R5
+R6
+vdata_memory
+R7
+!i10b 1
+!s100 HTCeN:I9SZbT1[nX>l^FJ3
+IRfFoRjhz^18iV][6UQl7M1
+R2
+R0
+w1508139280
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v|
+!i113 1
+R5
+R6
+vdecode
+R7
+!i10b 1
+!s100 [PN<?YgBJbGCjbTjfSjIh3
+IYB0PMBCMiFT9<[gcPB@<E0
+R2
+R0
+w1508138375
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v|
+!i113 1
+R5
+R6
+vexecute
+R7
+!i10b 1
+!s100 2TKLoJK1?A;]`DG]?E1BL1
+ILbhQczcB^J]=d1UU0[YE30
+R2
+R0
+w1508138358
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v
+L0 2
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v|
+!i113 1
+R5
+R6
+vfetch
+R7
+!i10b 1
+!s100 9<ZFDRZQ=AbCbBP]eO7RA3
+IV25=ceXdm5RKzzKdno4bI3
+R2
+R0
+w1508239712
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v
+L0 1
+R3
+r1
+!s85 0
+31
+R8
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v|
+!i113 1
+R5
+R6
+vinstruction_memory
+R7
+!i10b 1
+!s100 PgTneR[Sk7_a`QkTfaU;N0
+I36V8Aeg<g@KVeBWATz^QZ3
+R2
+R0
+w1508239613
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v
+Z9 L0 40
+R3
+r1
+!s85 0
+31
+Z10 !s108 1508240622.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v|
+!i113 1
+R5
+R6
+vmemory
+Z11 !s110 1508240622
+!i10b 1
+!s100 7OU0PAj85o4@?3@SiPTDj3
+IMe`MWXB_aTLI=]?0giScJ0
+R2
+R0
+w1508138233
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v
+L0 1
+R3
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v|
+!i113 1
+R5
+R6
+vmux_ld
+R11
+!i10b 1
+!s100 52Q:9JA4:LD[n;jhCo1jG2
+IW9fE1<edMj8V:Rb<AOIOb3
+R2
+R0
+w1508138213
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/mux_ld.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/mux_ld.v
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/mux_ld.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/mux_ld.v|
+!i113 1
+R5
+R6
+vmuxalu
+R11
+!i10b 1
+!s100 aQUO=7l4U:nELE90k52z@0
+IDPQH^hGA[]Je`3Sg4Ihog3
+R2
+R0
+w1508138205
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxalu.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxalu.v
+L0 3
+R3
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxalu.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxalu.v|
+!i113 1
+R5
+R6
+vmuxexe
+R11
+!i10b 1
+!s100 Lk15D3NFl@DK?R=cBW7392
+IfKDmN7`RB4clME_3>1OeY3
+R2
+R0
+w1508138196
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxexe.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxexe.v
+L0 2
+R3
+r1
+!s85 0
+31
+R10
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxexe.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxexe.v|
+!i113 1
+R5
+R6
+vmuxpc
+R11
+!i10b 1
+!s100 P[L:lPLAQz^AG><OMIeHM3
+ILgY4[f9I`:G2JGaB2dHZh3
+R2
+R0
+w1508138186
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxpc.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxpc.v
+L0 3
+R3
+r1
+!s85 0
+31
+Z12 !s108 1508240621.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxpc.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxpc.v|
+!i113 1
+R5
+R6
+vmuxwb
+Z13 !s110 1508240621
+!i10b 1
+!s100 6_Yh7K3VokYLfUb7DzA3F0
+ICR8inZgEWiMcJX5XZM??F2
+R2
+R0
+w1508138169
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxwb.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxwb.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxwb.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxwb.v|
+!i113 1
+R5
+R6
+vn_bit_adder
+R13
+!i10b 1
+!s100 5:E^;_2C8Y=@0mm`9C:TH3
+IQLX@ngPIK?1f>Nb0Q76h^1
+R2
+R0
+w1507260404
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_adder.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_adder.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_adder.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_adder.v|
+!i113 1
+R5
+R6
+vn_bit_comparator
+R13
+!i10b 1
+!s100 d0d^llea>`T=O>29dWG[R2
+IjlomiOL:ggK^P<molAE922
+R2
+R0
+w1507964072
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_comparator.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_comparator.v
+L0 1
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_comparator.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_comparator.v|
+!i113 1
+R5
+R6
+vprocesadorJOF32_top
+Z14 !s110 1508240619
+!i10b 1
+!s100 z>69MWz1zljcF<HS=T<Z63
+IH@nA835dE@GX@W`^BaL`A0
+R2
+R0
+w1508137302
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v
+L0 20
+R3
+r1
+!s85 0
+31
+!s108 1508240618.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v|
+!i113 1
+R5
+R6
+nprocesador@j@o@f32_top
+vram_1port
+R13
+!i10b 1
+!s100 nh@hbNcAOGRj4:7[LYW>G3
+IQJaEVIh9hJ[PY`HU:MzJl0
+R2
+R0
+w1508227112
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v
+R9
+R3
+r1
+!s85 0
+31
+R12
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v|
+!i113 1
+R5
+R6
+vregister_memory
+R13
+!i10b 1
+!s100 n@J3OH::5gfl;O4:@n@>o0
+IVXk`F3UmPO`Dhkj3ZINZb0
+R2
+R0
+w1508138114
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_memory.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_memory.v
+L0 3
+R3
+r1
+!s85 0
+31
+Z15 !s108 1508240620.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_memory.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_memory.v|
+!i113 1
+R5
+R6
+vregister_pc
+Z16 !s110 1508240620
+!i10b 1
+!s100 f`2k5Jd2O2TaldM[0C[jF3
+IoWX=gai<b]j1V85:><iPd1
+R2
+R0
+w1508138106
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_pc.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_pc.v
+L0 3
+R3
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_pc.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_pc.v|
+!i113 1
+R5
+R6
+vregistro_ex_mem
+R16
+!i10b 1
+!s100 LCCdJhBb8l9VQWI7Rb7O53
+I5G8lch_MPSH<C;ce_7mJD2
+R2
+R0
+w1508136982
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_ex_mem.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_ex_mem.v
+L0 1
+R3
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_ex_mem.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_ex_mem.v|
+!i113 1
+R5
+R6
+vregistro_id_ex
+R16
+!i10b 1
+!s100 lY8?JmjA=S=Fh^QA6dR?Q0
+IDC72dQ;L:Ykj2:KP1kHgV0
+R2
+R0
+w1508136959
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_id_ex.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_id_ex.v
+L0 3
+R3
+r1
+!s85 0
+31
+R15
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_id_ex.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_id_ex.v|
+!i113 1
+R5
+R6
+vregistro_if_id
+R14
+!i10b 1
+!s100 oaGoGGo^e08eW7[eB8E7l1
+I1eMhLhdZ;SHZ:N^XS;GJ[3
+R2
+R0
+w1508136943
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_if_id.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_if_id.v
+L0 2
+R3
+r1
+!s85 0
+31
+Z17 !s108 1508240619.000000
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_if_id.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_if_id.v|
+!i113 1
+R5
+R6
+vregistro_mem_wb
+R14
+!i10b 1
+!s100 o5DF<;imHM>bz6`UzJ7V31
+IX5N`W_9ECli1InG1gdK9d3
+R2
+R0
+w1508136913
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_mem_wb.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_mem_wb.v
+L0 1
+R3
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_mem_wb.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_mem_wb.v|
+!i113 1
+R5
+R6
+vsign_extend
+R14
+!i10b 1
+!s100 ;TLgW9WR1glNmiIoZgUZ62
+II;<4N87J8EL[;;Y3[mRV01
+R2
+R0
+w1508138094
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sign_extend.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/sign_extend.v
+L0 2
+R3
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sign_extend.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sign_extend.v|
+!i113 1
+R5
+R6
+vsumador1
+R14
+!i10b 1
+!s100 WaNO9CCL=3N;KJFNT]VJ^2
+IR6dLD>L]gVzaY2Ai_IER@0
+R2
+R0
+w1508138086
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sumador1.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/sumador1.v
+L0 2
+R3
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sumador1.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sumador1.v|
+!i113 1
+R5
+R6
+vwrite_back
+R14
+!i10b 1
+!s100 `H1@?jnW^zbbj[Wl?GQ;U1
+IF_90gQ8VOk^WM8d9DZaf10
+R2
+R0
+w1508138147
+8C:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v
+FC:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v
+L0 1
+R3
+r1
+!s85 0
+31
+R17
+!s107 C:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v|
+!s90 -reportprogress|300|-work|./work|C:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v|
+!i113 1
+R5
+R6

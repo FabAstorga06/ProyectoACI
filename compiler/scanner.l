@@ -49,6 +49,7 @@
 [a-zA-Z]+				return TARGET;
 \:							return TP;
 
+
 %%
 
 int yywrap(void) {

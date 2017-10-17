@@ -1,0 +1,14 @@
+module fetch(clk, pc_jump, pc_branch, pc_out, mux_pc, mem_RD);
+
+
+parameter SIZE_PC=9;
+
+clk;
+input [SIZE_PC:0] pc_jump;
+input [SIZE_PC:0] pc_branch;
+pc_out;
+mux_pc;
+mem_RD;
+
+
+endmodule;

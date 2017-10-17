@@ -1,0 +1,38 @@
+module Registro_EX_MEM (clk,
+								alu_in,
+								alu_out,
+								B_in,
+								B_out,
+								dir_wb_in,
+								dir_wb_out,
+								mem_wr_in,
+								mem_wr_out,
+								sel_wb_in,
+								sel_wb_out,
+								reg_wr_in
+								reg_wr_out);
+
+
+
+reg [31:0] alu;
+reg [31:0] B;
+reg [3:0] dir_wb;
+reg mem_wr;
+reg sel_wb;
+reg reg_wr;
+
+
+
+
+always @(posedge clk)
+begin
+    
+end
+
+always @(negedge clk)
+begin
+    
+end
+
+
+endmodule

@@ -1,0 +1,8 @@
+`timescale 1ns / 1ps
+
+module MuxExe (rd, rt, mux_out, dir_sl);
+
+input wire [3:0] rd, rt;
+output reg [3:0] mux_out;
+
+assign dir_sl = mux_out ? rt : rd;

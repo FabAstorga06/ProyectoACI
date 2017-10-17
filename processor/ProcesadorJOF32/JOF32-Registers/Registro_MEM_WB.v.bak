@@ -1,0 +1,35 @@
+module Registro_MEM_WB (
+
+);
+
+reg [31:0] result_alu;
+reg [31:0] result_mem;
+reg [3:0] dir_wb;
+reg sel_wb;
+reg reg_wr;
+
+input wire [31:0] result_alu_in;
+input wire [31:0] result_mem_in;
+input wire [3:0] dir_wb_in;
+input wire sel_wb_in;
+input wire reg_wr_in;
+
+
+output reg [31:0] result_alu_out;
+output reg [31:0] result_mem_out;
+output reg [3:0] dir_wb_out;
+output reg sel_wb_out;
+output reg reg_wr_out;
+
+always @(posedge clk)
+begin
+    instruction <= instruction_in;
+end
+
+always @(negedge clk)
+begin
+    instruction_out <= instruction;
+end
+
+
+endmodule

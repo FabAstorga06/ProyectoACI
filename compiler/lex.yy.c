@@ -984,7 +984,7 @@ return TP;
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 52 "scanner.l"
+#line 53 "scanner.l"
 ECHO;
 	YY_BREAK
 #line 991 "lex.yy.c"
@@ -1988,7 +1988,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 52 "scanner.l"
+#line 53 "scanner.l"
 
 
 

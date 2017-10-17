@@ -1,0 +1,1214 @@
+Analysis & Synthesis report for procesadorJOF32_top
+Tue Oct 17 05:33:06 2017
+Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis RAM Summary
+  9. Analysis & Synthesis DSP Block Usage Summary
+ 10. Analysis & Synthesis IP Cores Summary
+ 11. Logic Cells Representing Combinational Loops
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1|altsyncram_mvj1:auto_generated
+ 18. Source assignments for decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2|altsyncram_mvj1:auto_generated
+ 19. Source assignments for fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component|altsyncram_otg1:auto_generated
+ 20. Source assignments for memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated
+ 21. Parameter Settings for User Entity Instance: decode:b2v_inst|n_bit_comparator:comp
+ 22. Parameter Settings for User Entity Instance: decode:b2v_inst|register_memory:reg_mem
+ 23. Parameter Settings for User Entity Instance: decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1
+ 24. Parameter Settings for User Entity Instance: decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2
+ 25. Parameter Settings for User Entity Instance: fetch:b2v_inst12
+ 26. Parameter Settings for User Entity Instance: fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component
+ 27. Parameter Settings for User Entity Instance: control:b2v_inst4
+ 28. Parameter Settings for User Entity Instance: memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component
+ 29. Parameter Settings for User Entity Instance: execute:b2v_inst9|alu:alu
+ 30. Parameter Settings for Inferred Entity Instance: execute:b2v_inst9|alu:alu|lpm_divide:Div0
+ 31. altsyncram Parameter Settings by Entity Instance
+ 32. Post-Synthesis Netlist Statistics for Top Partition
+ 33. Elapsed Time Per Partition
+ 34. Analysis & Synthesis Messages
+ 35. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2016  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue Oct 17 05:33:05 2017       ;
+; Quartus Prime Version           ; 16.1.0 Build 196 10/24/2016 SJ Lite Edition ;
+; Revision Name                   ; procesadorJOF32_top                         ;
+; Top-level Entity Name           ; procesadorJOF32_top                         ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 674                                         ;
+; Total pins                      ; 33                                          ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 2,130,944                                   ;
+; Total DSP Blocks                ; 2                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                               ;
++---------------------------------------------------------------------------------+---------------------+---------------------+
+; Option                                                                          ; Setting             ; Default Value       ;
++---------------------------------------------------------------------------------+---------------------+---------------------+
+; Device                                                                          ; 5CSEMA5F31C6        ;                     ;
+; Top-level entity name                                                           ; procesadorJOF32_top ; procesadorJOF32_top ;
+; Family name                                                                     ; Cyclone V           ; Cyclone V           ;
+; Iteration limit for constant Verilog loops                                      ; 10000               ; 5000                ;
+; Use smart compilation                                                           ; Off                 ; Off                 ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                  ; On                  ;
+; Enable compact report table                                                     ; Off                 ; Off                 ;
+; Restructure Multiplexers                                                        ; Auto                ; Auto                ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                 ; Off                 ;
+; Create Debugging Nodes for IP Cores                                             ; Off                 ; Off                 ;
+; Preserve fewer node names                                                       ; On                  ; On                  ;
+; OpenCore Plus hardware evaluation                                               ; Enable              ; Enable              ;
+; Verilog Version                                                                 ; Verilog_2001        ; Verilog_2001        ;
+; VHDL Version                                                                    ; VHDL_1993           ; VHDL_1993           ;
+; State Machine Processing                                                        ; Auto                ; Auto                ;
+; Safe State Machine                                                              ; Off                 ; Off                 ;
+; Extract Verilog State Machines                                                  ; On                  ; On                  ;
+; Extract VHDL State Machines                                                     ; On                  ; On                  ;
+; Ignore Verilog initial constructs                                               ; Off                 ; Off                 ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                 ; 250                 ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                  ; On                  ;
+; Infer RAMs from Raw Logic                                                       ; On                  ; On                  ;
+; Parallel Synthesis                                                              ; On                  ; On                  ;
+; DSP Block Balancing                                                             ; Auto                ; Auto                ;
+; NOT Gate Push-Back                                                              ; On                  ; On                  ;
+; Power-Up Don't Care                                                             ; On                  ; On                  ;
+; Remove Redundant Logic Cells                                                    ; Off                 ; Off                 ;
+; Remove Duplicate Registers                                                      ; On                  ; On                  ;
+; Ignore CARRY Buffers                                                            ; Off                 ; Off                 ;
+; Ignore CASCADE Buffers                                                          ; Off                 ; Off                 ;
+; Ignore GLOBAL Buffers                                                           ; Off                 ; Off                 ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                 ; Off                 ;
+; Ignore LCELL Buffers                                                            ; Off                 ; Off                 ;
+; Ignore SOFT Buffers                                                             ; On                  ; On                  ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                 ; Off                 ;
+; Optimization Technique                                                          ; Balanced            ; Balanced            ;
+; Carry Chain Length                                                              ; 70                  ; 70                  ;
+; Auto Carry Chains                                                               ; On                  ; On                  ;
+; Auto Open-Drain Pins                                                            ; On                  ; On                  ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                 ; Off                 ;
+; Auto ROM Replacement                                                            ; On                  ; On                  ;
+; Auto RAM Replacement                                                            ; On                  ; On                  ;
+; Auto DSP Block Replacement                                                      ; On                  ; On                  ;
+; Auto Shift Register Replacement                                                 ; Auto                ; Auto                ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto                ; Auto                ;
+; Auto Clock Enable Replacement                                                   ; On                  ; On                  ;
+; Strict RAM Replacement                                                          ; Off                 ; Off                 ;
+; Allow Synchronous Control Signals                                               ; On                  ; On                  ;
+; Force Use of Synchronous Clear Signals                                          ; Off                 ; Off                 ;
+; Auto Resource Sharing                                                           ; Off                 ; Off                 ;
+; Allow Any RAM Size For Recognition                                              ; Off                 ; Off                 ;
+; Allow Any ROM Size For Recognition                                              ; Off                 ; Off                 ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                 ; Off                 ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                  ; On                  ;
+; Ignore translate_off and synthesis_off directives                               ; Off                 ; Off                 ;
+; Timing-Driven Synthesis                                                         ; On                  ; On                  ;
+; Report Parameter Settings                                                       ; On                  ; On                  ;
+; Report Source Assignments                                                       ; On                  ; On                  ;
+; Report Connectivity Checks                                                      ; On                  ; On                  ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                 ; Off                 ;
+; Synchronization Register Chain Length                                           ; 3                   ; 3                   ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation  ; Normal compilation  ;
+; HDL message level                                                               ; Level2              ; Level2              ;
+; Suppress Register Optimization Related Messages                                 ; Off                 ; Off                 ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000                ; 5000                ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000                ; 5000                ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                 ; 100                 ;
+; Clock MUX Protection                                                            ; On                  ; On                  ;
+; Auto Gated Clock Conversion                                                     ; Off                 ; Off                 ;
+; Block Design Naming                                                             ; Auto                ; Auto                ;
+; SDC constraint protection                                                       ; Off                 ; Off                 ;
+; Synthesis Effort                                                                ; Auto                ; Auto                ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                  ; On                  ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                 ; Off                 ;
+; Analysis & Synthesis Message Level                                              ; Medium              ; Medium              ;
+; Disable Register Merging Across Hierarchies                                     ; Auto                ; Auto                ;
+; Resource Aware Inference For Block RAM                                          ; On                  ; On                  ;
+; Automatic Parallel Synthesis                                                    ; On                  ; On                  ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                 ; Off                 ;
++---------------------------------------------------------------------------------+---------------------+---------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                              ; File Name with Absolute Path                                                 ; Library ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+; ram_1port.v                      ; yes             ; User Wizard-Generated File             ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v                 ;         ;
+; write_back.v                     ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v                ;         ;
+; sumador1.v                       ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sumador1.v                  ;         ;
+; sign_extend.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sign_extend.v               ;         ;
+; registro_mem_wb.v                ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_mem_wb.v           ;         ;
+; registro_if_id.v                 ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_if_id.v            ;         ;
+; registro_id_ex.v                 ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_id_ex.v            ;         ;
+; registro_ex_mem.v                ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_ex_mem.v           ;         ;
+; register_pc.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_pc.v               ;         ;
+; register_memory.v                ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_memory.v           ;         ;
+; procesadorJOF32_top.v            ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v       ;         ;
+; n_bit_comparator.v               ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_comparator.v          ;         ;
+; muxwb.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxwb.v                     ;         ;
+; muxpc.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxpc.v                     ;         ;
+; muxexe.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxexe.v                    ;         ;
+; muxalu.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxalu.v                    ;         ;
+; mux_ld.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/mux_ld.v                    ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v                    ;         ;
+; fetch.v                          ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v                     ;         ;
+; execute.v                        ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v                   ;         ;
+; decode.v                         ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v                    ;         ;
+; data_memory.v                    ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v               ;         ;
+; control.v                        ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/control.v                   ;         ;
+; branch_control.v                 ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/branch_control.v            ;         ;
+; alu.v                            ; yes             ; User Verilog HDL File                  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v                       ;         ;
+; instruction_memory.v             ; yes             ; User Wizard-Generated File             ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal161.inc                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/aglobal161.inc        ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altram.inc                       ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altram.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_mvj1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_mvj1.tdf      ;         ;
+; db/altsyncram_otg1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_otg1.tdf      ;         ;
+; fuerza_bruta.hex                 ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fuerza_bruta.hex            ;         ;
+; db/altsyncram_8ip1.tdf           ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_8ip1.tdf      ;         ;
+; lorem_ipsum_64kb.hex             ; yes             ; Auto-Found Memory Initialization File  ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/lorem_ipsum_64kb.hex        ;         ;
+; db/decode_dla.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/decode_dla.tdf           ;         ;
+; db/decode_61a.tdf                ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/decode_61a.tdf           ;         ;
+; db/mux_ahb.tdf                   ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/mux_ahb.tdf              ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/lpm_divide.tdf        ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/abs_divider.inc       ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                           ; c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/sign_div_unsign.inc   ;         ;
+; db/lpm_divide_3dm.tdf            ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/lpm_divide_3dm.tdf       ;         ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/sign_div_unsign_9nh.tdf  ;         ;
+; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction            ; C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/alt_u_div_o2f.tdf        ;         ;
++----------------------------------+-----------------+----------------------------------------+------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 1044      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 1699      ;
+;     -- 7 input functions                    ; 1         ;
+;     -- 6 input functions                    ; 308       ;
+;     -- 5 input functions                    ; 655       ;
+;     -- 4 input functions                    ; 524       ;
+;     -- <=3 input functions                  ; 211       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 674       ;
+;                                             ;           ;
+; I/O pins                                    ; 33        ;
+; Total MLAB memory bits                      ; 0         ;
+; Total block memory bits                     ; 2130944   ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 2         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 1026      ;
+; Total fan-out                               ; 15434     ;
+; Average fan-out                             ; 5.53      ;
++---------------------------------------------+-----------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                                            ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                            ; Entity Name         ; Library Name ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |procesadorJOF32_top                            ; 1699 (0)            ; 674 (0)                   ; 2130944           ; 2          ; 33   ; 0            ; |procesadorJOF32_top                                                                                                                                           ; procesadorJOF32_top ; work         ;
+;    |control:b2v_inst4|                          ; 15 (15)             ; 14 (14)                   ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|control:b2v_inst4                                                                                                                         ; control             ; work         ;
+;    |decode:b2v_inst|                            ; 1 (0)               ; 64 (0)                    ; 1024              ; 0          ; 0    ; 0            ; |procesadorJOF32_top|decode:b2v_inst                                                                                                                           ; decode              ; work         ;
+;       |register_memory:reg_mem|                 ; 1 (1)               ; 64 (64)                   ; 1024              ; 0          ; 0    ; 0            ; |procesadorJOF32_top|decode:b2v_inst|register_memory:reg_mem                                                                                                   ; register_memory     ; work         ;
+;          |altsyncram:mem[0][31]__1|             ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |procesadorJOF32_top|decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1                                                                          ; altsyncram          ; work         ;
+;             |altsyncram_mvj1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |procesadorJOF32_top|decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1|altsyncram_mvj1:auto_generated                                           ; altsyncram_mvj1     ; work         ;
+;          |altsyncram:mem[0][31]__2|             ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |procesadorJOF32_top|decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2                                                                          ; altsyncram          ; work         ;
+;             |altsyncram_mvj1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 512               ; 0          ; 0    ; 0            ; |procesadorJOF32_top|decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2|altsyncram_mvj1:auto_generated                                           ; altsyncram_mvj1     ; work         ;
+;    |execute:b2v_inst9|                          ; 1482 (0)            ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9                                                                                                                         ; execute             ; work         ;
+;       |alu:alu|                                 ; 1431 (343)          ; 0 (0)                     ; 0                 ; 2          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu                                                                                                                 ; alu                 ; work         ;
+;          |lpm_divide:Div0|                      ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|lpm_divide:Div0                                                                                                 ; lpm_divide          ; work         ;
+;             |lpm_divide_3dm:auto_generated|     ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|lpm_divide:Div0|lpm_divide_3dm:auto_generated                                                                   ; lpm_divide_3dm      ; work         ;
+;                |sign_div_unsign_9nh:divider|    ; 1088 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider                                       ; sign_div_unsign_9nh ; work         ;
+;                   |alt_u_div_o2f:divider|       ; 1088 (1088)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|lpm_divide:Div0|lpm_divide_3dm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_o2f:divider                 ; alt_u_div_o2f       ; work         ;
+;       |muxalu:mux_alu|                          ; 47 (47)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|muxalu:mux_alu                                                                                                          ; muxalu              ; work         ;
+;       |muxexe:MuxExe|                           ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|execute:b2v_inst9|muxexe:MuxExe                                                                                                           ; muxexe              ; work         ;
+;    |fetch:b2v_inst12|                           ; 35 (0)              ; 20 (0)                    ; 32768             ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12                                                                                                                          ; fetch               ; work         ;
+;       |instruction_memory:intMem|               ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12|instruction_memory:intMem                                                                                                ; instruction_memory  ; work         ;
+;          |altsyncram:altsyncram_component|      ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component                                                                ; altsyncram          ; work         ;
+;             |altsyncram_otg1:auto_generated|    ; 0 (0)               ; 0 (0)                     ; 32768             ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component|altsyncram_otg1:auto_generated                                 ; altsyncram_otg1     ; work         ;
+;       |muxpc:mpc|                               ; 25 (25)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12|muxpc:mpc                                                                                                                ; muxpc               ; work         ;
+;       |register_pc:regPC|                       ; 0 (0)               ; 20 (20)                   ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12|register_pc:regPC                                                                                                        ; register_pc         ; work         ;
+;       |sumador1:sum1|                           ; 10 (10)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|fetch:b2v_inst12|sumador1:sum1                                                                                                            ; sumador1            ; work         ;
+;    |memory:b2v_inst8|                           ; 112 (0)             ; 35 (0)                    ; 2097152           ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8                                                                                                                          ; memory              ; work         ;
+;       |data_memory:data_mem|                    ; 112 (32)            ; 35 (32)                   ; 2097152           ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem                                                                                                     ; data_memory         ; work         ;
+;          |ram_1port:ram|                        ; 80 (0)              ; 3 (0)                     ; 2097152           ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram                                                                                       ; ram_1port           ; work         ;
+;             |altsyncram:altsyncram_component|   ; 80 (0)              ; 3 (0)                     ; 2097152           ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component                                                       ; altsyncram          ; work         ;
+;                |altsyncram_8ip1:auto_generated| ; 80 (0)              ; 3 (3)                     ; 2097152           ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated                        ; altsyncram_8ip1     ; work         ;
+;                   |decode_61a:rden_decode|      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|decode_61a:rden_decode ; decode_61a          ; work         ;
+;                   |decode_dla:decode3|          ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|decode_dla:decode3     ; decode_dla          ; work         ;
+;                   |mux_ahb:mux2|                ; 64 (64)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|mux_ahb:mux2           ; mux_ahb             ; work         ;
+;    |registro_ex_mem:b2v_inst7|                  ; 17 (17)             ; 144 (144)                 ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|registro_ex_mem:b2v_inst7                                                                                                                 ; registro_ex_mem     ; work         ;
+;    |registro_id_ex:b2v_inst10|                  ; 5 (5)               ; 196 (196)                 ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|registro_id_ex:b2v_inst10                                                                                                                 ; registro_id_ex      ; work         ;
+;    |registro_if_id:b2v_inst17|                  ; 0 (0)               ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|registro_if_id:b2v_inst17                                                                                                                 ; registro_if_id      ; work         ;
+;    |registro_mem_wb:b2v_inst11|                 ; 0 (0)               ; 137 (137)                 ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|registro_mem_wb:b2v_inst11                                                                                                                ; registro_mem_wb     ; work         ;
+;    |write_back:b2v_inst5|                       ; 32 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|write_back:b2v_inst5                                                                                                                      ; write_back          ; work         ;
+;       |muxwb:mwb|                               ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |procesadorJOF32_top|write_back:b2v_inst5|muxwb:mwb                                                                                                            ; muxwb               ; work         ;
++-------------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis RAM Summary                                                                                                                                                                                                                     ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+----------------------+
+; Name                                                                                                                          ; Type ; Mode             ; Port A Depth ; Port A Width ; Port B Depth ; Port B Width ; Size    ; MIF                  ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+----------------------+
+; decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1|altsyncram_mvj1:auto_generated|ALTSYNCRAM                    ; AUTO ; Simple Dual Port ; 16           ; 32           ; 16           ; 32           ; 512     ; None                 ;
+; decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2|altsyncram_mvj1:auto_generated|ALTSYNCRAM                    ; AUTO ; Simple Dual Port ; 16           ; 32           ; 16           ; 32           ; 512     ; None                 ;
+; fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component|altsyncram_otg1:auto_generated|ALTSYNCRAM          ; AUTO ; ROM              ; 1024         ; 32           ; --           ; --           ; 32768   ; fuerza_bruta.hex     ;
+; memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|ALTSYNCRAM ; AUTO ; Single Port      ; 65536        ; 32           ; --           ; --           ; 2097152 ; Lorem_Ipsum_64Kb.hex ;
++-------------------------------------------------------------------------------------------------------------------------------+------+------------------+--------------+--------------+--------------+--------------+---------+----------------------+
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 1           ;
+; Sum of two 18x18                ; 1           ;
+; Total number of DSP blocks      ; 2           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 3           ;
++---------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis IP Cores Summary                                                                                                                  ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------------+----------------------+
+; Vendor ; IP Core Name ; Version ; Release Date ; License Type ; Entity Instance                                                 ; IP Include File      ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------------+----------------------+
+; Altera ; ROM: 1-PORT  ; 16.1    ; N/A          ; N/A          ; |procesadorJOF32_top|fetch:b2v_inst12|instruction_memory:intMem ; instruction_memory.v ;
++--------+--------------+---------+--------------+--------------+-----------------------------------------------------------------+----------------------+
+
+
++-------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                ;
++--------------------------------------------------------+----+
+; Logic Cell Name                                        ;    ;
++--------------------------------------------------------+----+
+; fetch:b2v_inst12|muxpc:mpc|mux_out[0]~0                ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[1]~8             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[2]~7             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[3]~6             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[4]~5             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[5]~4             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[6]~3             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[7]~2             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[8]~1             ;    ;
+; fetch:b2v_inst12|sumador1:sum1|pc_out[9]~0             ;    ;
+; Number of logic cells representing combinational loops ; 10 ;
++--------------------------------------------------------+----+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Register name                                   ; Reason for Removal                                                                                                                              ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+; registro_id_ex:b2v_inst10|shamt[5..31]          ; Stuck at GND due to stuck port data_in                                                                                                          ;
+; registro_id_ex:b2v_inst10|shamt_out[5..31]      ; Stuck at GND due to stuck port data_in                                                                                                          ;
+; registro_mem_wb:b2v_inst11|result_alu[17]       ; Merged with memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|address_reg_a[2] ;
+; registro_mem_wb:b2v_inst11|result_alu[16]       ; Merged with memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|address_reg_a[1] ;
+; registro_mem_wb:b2v_inst11|result_alu[15]       ; Merged with memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|address_reg_a[0] ;
+; registro_id_ex:b2v_inst10|shamt[0]              ; Merged with registro_id_ex:b2v_inst10|inmediate[10]                                                                                             ;
+; registro_id_ex:b2v_inst10|shamt[1]              ; Merged with registro_id_ex:b2v_inst10|inmediate[11]                                                                                             ;
+; registro_id_ex:b2v_inst10|shamt[2]              ; Merged with registro_id_ex:b2v_inst10|inmediate[12]                                                                                             ;
+; registro_id_ex:b2v_inst10|shamt[3]              ; Merged with registro_id_ex:b2v_inst10|inmediate[13]                                                                                             ;
+; registro_id_ex:b2v_inst10|shamt[4]              ; Merged with registro_id_ex:b2v_inst10|inmediate[14]                                                                                             ;
+; registro_id_ex:b2v_inst10|rd[0]                 ; Merged with registro_id_ex:b2v_inst10|inmediate[15]                                                                                             ;
+; registro_id_ex:b2v_inst10|inmediate[16..31]     ; Merged with registro_id_ex:b2v_inst10|inmediate[15]                                                                                             ;
+; registro_id_ex:b2v_inst10|shamt_out[0]          ; Merged with registro_id_ex:b2v_inst10|inmediate_out[10]                                                                                         ;
+; registro_id_ex:b2v_inst10|shamt_out[1]          ; Merged with registro_id_ex:b2v_inst10|inmediate_out[11]                                                                                         ;
+; registro_id_ex:b2v_inst10|shamt_out[2]          ; Merged with registro_id_ex:b2v_inst10|inmediate_out[12]                                                                                         ;
+; registro_id_ex:b2v_inst10|shamt_out[3]          ; Merged with registro_id_ex:b2v_inst10|inmediate_out[13]                                                                                         ;
+; registro_id_ex:b2v_inst10|shamt_out[4]          ; Merged with registro_id_ex:b2v_inst10|inmediate_out[14]                                                                                         ;
+; registro_id_ex:b2v_inst10|rd_out[0]             ; Merged with registro_id_ex:b2v_inst10|inmediate_out[15]                                                                                         ;
+; registro_id_ex:b2v_inst10|inmediate_out[16..31] ; Merged with registro_id_ex:b2v_inst10|inmediate_out[15]                                                                                         ;
+; registro_id_ex:b2v_inst10|dir_sl_out            ; Merged with registro_id_ex:b2v_inst10|alu_sel_out[0]                                                                                            ;
+; registro_id_ex:b2v_inst10|dir_sl                ; Merged with registro_id_ex:b2v_inst10|alu_sel[0]                                                                                                ;
+; control:b2v_inst4|dir_sl                        ; Merged with control:b2v_inst4|alu_sel[0]                                                                                                        ;
+; Total Number of Removed Registers = 104         ;                                                                                                                                                 ;
++-------------------------------------------------+-------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                               ;
++-------------------------------------+---------------------------+-----------------------------------------+
+; Register name                       ; Reason for Removal        ; Registers Removed due to This Register  ;
++-------------------------------------+---------------------------+-----------------------------------------+
+; registro_id_ex:b2v_inst10|shamt[5]  ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[5]  ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[6]  ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[6]  ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[7]  ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[7]  ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[8]  ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[8]  ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[9]  ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[9]  ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[10] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[10] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[11] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[11] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[12] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[12] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[13] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[13] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[14] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[14] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[15] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[15] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[16] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[16] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[17] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[17] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[18] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[18] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[19] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[19] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[20] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[20] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[21] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[21] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[22] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[22] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[23] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[23] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[24] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[24] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[25] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[25] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[26] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[26] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[27] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[27] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[28] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[28] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[29] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[29] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[30] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[30] ;
+;                                     ; due to stuck port data_in ;                                         ;
+; registro_id_ex:b2v_inst10|shamt[31] ; Stuck at GND              ; registro_id_ex:b2v_inst10|shamt_out[31] ;
+;                                     ; due to stuck port data_in ;                                         ;
++-------------------------------------+---------------------------+-----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 674   ;
+; Number of registers using Synchronous Clear  ; 56    ;
+; Number of registers using Synchronous Load   ; 32    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 104   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; control:b2v_inst4|opcode[3]            ; 1       ;
+; control:b2v_inst4|opcode[0]            ; 1       ;
+; control:b2v_inst4|opcode[1]            ; 1       ;
+; control:b2v_inst4|opcode[2]            ; 1       ;
+; control:b2v_inst4|opcode[4]            ; 1       ;
+; Total number of inverted registers = 5 ;         ;
++----------------------------------------+---------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                                                                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; 32:1               ; 8 bits    ; 168 LEs       ; 64 LEs               ; 104 LEs                ; Yes        ; |procesadorJOF32_top|control:b2v_inst4|reg_wr                                                                                                                              ;
+; 39:1               ; 12 bits   ; 312 LEs       ; 96 LEs               ; 216 LEs                ; Yes        ; |procesadorJOF32_top|registro_ex_mem:b2v_inst7|alu[9]                                                                                                                      ;
+; 39:1               ; 12 bits   ; 312 LEs       ; 96 LEs               ; 216 LEs                ; Yes        ; |procesadorJOF32_top|registro_ex_mem:b2v_inst7|alu[16]                                                                                                                     ;
+; 42:1               ; 4 bits    ; 112 LEs       ; 60 LEs               ; 52 LEs                 ; Yes        ; |procesadorJOF32_top|registro_ex_mem:b2v_inst7|alu[0]                                                                                                                      ;
+; 42:1               ; 4 bits    ; 112 LEs       ; 60 LEs               ; 52 LEs                 ; Yes        ; |procesadorJOF32_top|registro_ex_mem:b2v_inst7|alu[28]                                                                                                                     ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|mux_ahb:mux2|l2_w22_n0_mux_dataout ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |procesadorJOF32_top|memory:b2v_inst8|data_memory:data_mem|Mux29                                                                                                           ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|muxalu:mux_alu|mux_out[13]                                                                                                          ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|muxalu:mux_alu|mux_out[0]                                                                                                           ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|ShiftLeft0                                                                                                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|ShiftLeft0                                                                                                                  ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|ShiftLeft0                                                                                                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|ShiftLeft0                                                                                                                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|ShiftRight0                                                                                                                 ;
+; 4:1                ; 50 bits   ; 100 LEs       ; 100 LEs              ; 0 LEs                  ; No         ; |procesadorJOF32_top|execute:b2v_inst9|alu:alu|ShiftRight0                                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1|altsyncram_mvj1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                       ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                        ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2|altsyncram_mvj1:auto_generated ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                       ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                        ;
++---------------------------------+--------------------+------+----------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component|altsyncram_otg1:auto_generated ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                 ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                  ;
++---------------------------------+--------------------+------+--------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                                          ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                                           ;
++---------------------------------+--------------------+------+-----------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decode:b2v_inst|n_bit_comparator:comp ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 32    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decode:b2v_inst|register_memory:reg_mem ;
++----------------+-------+-------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                        ;
++----------------+-------+-------------------------------------------------------------+
+; DATA_WIDTH     ; 31    ; Signed Integer                                              ;
+; ADDR_WIDTH     ; 3     ; Signed Integer                                              ;
+; RAM_DEPTH      ; 15    ; Signed Integer                                              ;
++----------------+-------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_A                          ; 4                    ; Untyped                                           ;
+; NUMWORDS_A                         ; 16                   ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_B                          ; 4                    ; Untyped                                           ;
+; NUMWORDS_B                         ; 16                   ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_mvj1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2 ;
++------------------------------------+----------------------+---------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                              ;
++------------------------------------+----------------------+---------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                           ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                        ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                      ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                      ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                    ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                           ;
+; OPERATION_MODE                     ; DUAL_PORT            ; Untyped                                           ;
+; WIDTH_A                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_A                          ; 4                    ; Untyped                                           ;
+; NUMWORDS_A                         ; 16                   ; Untyped                                           ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                           ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                           ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                           ;
+; WIDTH_B                            ; 32                   ; Untyped                                           ;
+; WIDTHAD_B                          ; 4                    ; Untyped                                           ;
+; NUMWORDS_B                         ; 16                   ; Untyped                                           ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                           ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                           ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                           ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                           ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                           ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                           ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                           ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                           ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Untyped                                           ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                           ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                           ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                           ;
+; INIT_FILE                          ; UNUSED               ; Untyped                                           ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                           ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_A               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_A              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                           ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                           ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                           ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                           ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                           ;
+; CBXI_PARAMETER                     ; altsyncram_mvj1      ; Untyped                                           ;
++------------------------------------+----------------------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fetch:b2v_inst12 ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; SIZE_PC        ; 9     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+-------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                        ;
++------------------------------------+----------------------+-------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                     ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                  ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                              ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                     ;
+; OPERATION_MODE                     ; ROM                  ; Untyped                                                     ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                              ;
+; WIDTHAD_A                          ; 10                   ; Signed Integer                                              ;
+; NUMWORDS_A                         ; 1024                 ; Signed Integer                                              ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                     ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                     ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                     ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                     ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                     ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                     ;
+; WIDTH_B                            ; 1                    ; Untyped                                                     ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                     ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                     ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                     ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                     ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                     ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                     ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                     ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                     ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                     ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                     ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                     ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                     ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                     ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                     ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                              ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                     ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                     ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                     ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                     ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                     ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                     ;
+; INIT_FILE                          ; fuerza_bruta.hex     ; Untyped                                                     ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                     ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                     ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                     ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                     ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                     ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                     ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                     ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                     ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                     ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                     ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                     ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                     ;
+; CBXI_PARAMETER                     ; altsyncram_otg1      ; Untyped                                                     ;
++------------------------------------+----------------------+-------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: control:b2v_inst4 ;
++----------------+-------+---------------------------------------+
+; Parameter Name ; Value ; Type                                  ;
++----------------+-------+---------------------------------------+
+; ADD            ; 00000 ; Unsigned Binary                       ;
+; SUB            ; 00001 ; Unsigned Binary                       ;
+; SRL            ; 00110 ; Unsigned Binary                       ;
+; SLL            ; 00101 ; Unsigned Binary                       ;
+; AND            ; 00010 ; Unsigned Binary                       ;
+; OR             ; 00011 ; Unsigned Binary                       ;
+; NOR            ; 00100 ; Unsigned Binary                       ;
+; MULT           ; 00111 ; Unsigned Binary                       ;
+; DIV            ; 01000 ; Unsigned Binary                       ;
+; ADDI           ; 01111 ; Unsigned Binary                       ;
+; SW             ; 01101 ; Unsigned Binary                       ;
+; LW             ; 01011 ; Unsigned Binary                       ;
+; LB             ; 01100 ; Unsigned Binary                       ;
+; BEQ            ; 01001 ; Unsigned Binary                       ;
+; BNE            ; 01010 ; Unsigned Binary                       ;
+; J              ; 01110 ; Unsigned Binary                       ;
+; NOP            ; 11111 ; Unsigned Binary                       ;
++----------------+-------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; Parameter Name                     ; Value                ; Type                                                                 ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                    ; Untyped                                                              ;
+; AUTO_CARRY_CHAINS                  ; ON                   ; AUTO_CARRY                                                           ;
+; IGNORE_CARRY_BUFFERS               ; OFF                  ; IGNORE_CARRY                                                         ;
+; AUTO_CASCADE_CHAINS                ; ON                   ; AUTO_CASCADE                                                         ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                  ; IGNORE_CASCADE                                                       ;
+; WIDTH_BYTEENA                      ; 1                    ; Untyped                                                              ;
+; OPERATION_MODE                     ; SINGLE_PORT          ; Untyped                                                              ;
+; WIDTH_A                            ; 32                   ; Signed Integer                                                       ;
+; WIDTHAD_A                          ; 16                   ; Signed Integer                                                       ;
+; NUMWORDS_A                         ; 65536                ; Signed Integer                                                       ;
+; OUTDATA_REG_A                      ; UNREGISTERED         ; Untyped                                                              ;
+; ADDRESS_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_A                   ; NONE                 ; Untyped                                                              ;
+; INDATA_ACLR_A                      ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_A                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_B                            ; 1                    ; Untyped                                                              ;
+; WIDTHAD_B                          ; 1                    ; Untyped                                                              ;
+; NUMWORDS_B                         ; 1                    ; Untyped                                                              ;
+; INDATA_REG_B                       ; CLOCK1               ; Untyped                                                              ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1               ; Untyped                                                              ;
+; RDCONTROL_REG_B                    ; CLOCK1               ; Untyped                                                              ;
+; ADDRESS_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; OUTDATA_REG_B                      ; UNREGISTERED         ; Untyped                                                              ;
+; BYTEENA_REG_B                      ; CLOCK1               ; Untyped                                                              ;
+; INDATA_ACLR_B                      ; NONE                 ; Untyped                                                              ;
+; WRCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; ADDRESS_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; OUTDATA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; RDCONTROL_ACLR_B                   ; NONE                 ; Untyped                                                              ;
+; BYTEENA_ACLR_B                     ; NONE                 ; Untyped                                                              ;
+; WIDTH_BYTEENA_A                    ; 1                    ; Signed Integer                                                       ;
+; WIDTH_BYTEENA_B                    ; 1                    ; Untyped                                                              ;
+; RAM_BLOCK_TYPE                     ; AUTO                 ; Untyped                                                              ;
+; BYTE_SIZE                          ; 8                    ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE            ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_NO_NBE_READ ; Untyped                                                              ;
+; INIT_FILE                          ; Lorem_Ipsum_64Kb.hex ; Untyped                                                              ;
+; INIT_FILE_LAYOUT                   ; PORT_A               ; Untyped                                                              ;
+; MAXIMUM_DEPTH                      ; 0                    ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_INPUT_B               ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS               ; Untyped                                                              ;
+; CLOCK_ENABLE_OUTPUT_B              ; NORMAL               ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_A                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; CLOCK_ENABLE_CORE_B                ; USE_INPUT_CLKEN      ; Untyped                                                              ;
+; ENABLE_ECC                         ; FALSE                ; Untyped                                                              ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                ; Untyped                                                              ;
+; WIDTH_ECCSTATUS                    ; 3                    ; Untyped                                                              ;
+; DEVICE_FAMILY                      ; Cyclone V            ; Untyped                                                              ;
+; CBXI_PARAMETER                     ; altsyncram_8ip1      ; Untyped                                                              ;
++------------------------------------+----------------------+----------------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: execute:b2v_inst9|alu:alu ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; ADD            ; 00001 ; Unsigned Binary                               ;
+; SUB            ; 00010 ; Unsigned Binary                               ;
+; SRL            ; 00111 ; Unsigned Binary                               ;
+; SLL            ; 00110 ; Unsigned Binary                               ;
+; AND            ; 00011 ; Unsigned Binary                               ;
+; OR             ; 00100 ; Unsigned Binary                               ;
+; NOR            ; 00101 ; Unsigned Binary                               ;
+; MULT           ; 01000 ; Unsigned Binary                               ;
+; DIV            ; 01001 ; Unsigned Binary                               ;
+; ADDI           ; 01111 ; Unsigned Binary                               ;
+; SW             ; 01110 ; Unsigned Binary                               ;
+; LW             ; 01100 ; Unsigned Binary                               ;
+; LB             ; 01101 ; Unsigned Binary                               ;
+; BEQ            ; 01010 ; Unsigned Binary                               ;
+; BNE            ; 01011 ; Unsigned Binary                               ;
+; J              ; 10000 ; Unsigned Binary                               ;
+; NOP            ; 11111 ; Unsigned Binary                               ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: execute:b2v_inst9|alu:alu|lpm_divide:Div0 ;
++------------------------+----------------+--------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                             ;
++------------------------+----------------+--------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                          ;
+; LPM_WIDTHD             ; 32             ; Untyped                                          ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                          ;
+; LPM_PIPELINE           ; 0              ; Untyped                                          ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                          ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                          ;
+; CBXI_PARAMETER         ; lpm_divide_3dm ; Untyped                                          ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                          ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                          ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                     ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                   ;
++------------------------+----------------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; altsyncram Parameter Settings by Entity Instance                                                                                ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Name                                      ; Value                                                                               ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+; Number of entity instances                ; 4                                                                                   ;
+; Entity Instance                           ; decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1                    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                           ;
+;     -- WIDTH_A                            ; 32                                                                                  ;
+;     -- NUMWORDS_A                         ; 16                                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 32                                                                                  ;
+;     -- NUMWORDS_B                         ; 16                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__2                    ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                           ;
+;     -- WIDTH_A                            ; 32                                                                                  ;
+;     -- NUMWORDS_A                         ; 16                                                                                  ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 32                                                                                  ;
+;     -- NUMWORDS_B                         ; 16                                                                                  ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component          ;
+;     -- OPERATION_MODE                     ; ROM                                                                                 ;
+;     -- WIDTH_A                            ; 32                                                                                  ;
+;     -- NUMWORDS_A                         ; 1024                                                                                ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
+; Entity Instance                           ; memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component ;
+;     -- OPERATION_MODE                     ; SINGLE_PORT                                                                         ;
+;     -- WIDTH_A                            ; 32                                                                                  ;
+;     -- NUMWORDS_A                         ; 65536                                                                               ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                        ;
+;     -- WIDTH_B                            ; 1                                                                                   ;
+;     -- NUMWORDS_B                         ; 1                                                                                   ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                              ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                        ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                           ;
++-------------------------------------------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 674                         ;
+;     ENA               ; 64                          ;
+;     ENA SCLR          ; 8                           ;
+;     ENA SLD           ; 32                          ;
+;     SCLR              ; 48                          ;
+;     plain             ; 522                         ;
+; arriav_lcell_comb     ; 1699                        ;
+;     arith             ; 674                         ;
+;         0 data inputs ; 61                          ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 14                          ;
+;         4 data inputs ; 9                           ;
+;         5 data inputs ; 589                         ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 1019                        ;
+;         1 data inputs ; 10                          ;
+;         2 data inputs ; 50                          ;
+;         3 data inputs ; 71                          ;
+;         4 data inputs ; 514                         ;
+;         5 data inputs ; 66                          ;
+;         6 data inputs ; 308                         ;
+;     shared            ; 5                           ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 2                           ;
+;         4 data inputs ; 1                           ;
+; arriav_mac            ; 2                           ;
+; boundary_port         ; 33                          ;
+; stratixv_ram_block    ; 352                         ;
+;                       ;                             ;
+; Max LUT depth         ; 105.60                      ;
+; Average LUT depth     ; 53.37                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:11     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+    Info: Processing started: Tue Oct 17 05:32:24 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off procesadorJOF32 -c procesadorJOF32_top
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file bcd.v
+    Info (12023): Found entity 1: bcd File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/bcd.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file ram_1port.v
+    Info (12023): Found entity 1: ram_1port File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file write_back.v
+    Info (12023): Found entity 1: write_back File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file sumador1.v
+    Info (12023): Found entity 1: sumador1 File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sumador1.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file sign_extend.v
+    Info (12023): Found entity 1: sign_extend File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/sign_extend.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file registro_mem_wb.v
+    Info (12023): Found entity 1: registro_mem_wb File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_mem_wb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file registro_if_id.v
+    Info (12023): Found entity 1: registro_if_id File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_if_id.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file registro_id_ex.v
+    Info (12023): Found entity 1: registro_id_ex File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_id_ex.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file registro_ex_mem.v
+    Info (12023): Found entity 1: registro_ex_mem File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/registro_ex_mem.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file register_pc.v
+    Info (12023): Found entity 1: register_pc File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_pc.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file register_memory.v
+    Info (12023): Found entity 1: register_memory File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/register_memory.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file procesadorjof32_top.v
+    Info (12023): Found entity 1: procesadorJOF32_top File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 20
+Info (12021): Found 1 design units, including 1 entities, in source file n_bit_comparator.v
+    Info (12023): Found entity 1: n_bit_comparator File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_comparator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file n_bit_adder.v
+    Info (12023): Found entity 1: n_bit_adder File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/n_bit_adder.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxwb.v
+    Info (12023): Found entity 1: muxwb File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxwb.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file muxpc.v
+    Info (12023): Found entity 1: muxpc File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxpc.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file muxexe.v
+    Info (12023): Found entity 1: muxexe File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxexe.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file muxalu.v
+    Info (12023): Found entity 1: muxalu File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/muxalu.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file mux_ld.v
+    Info (12023): Found entity 1: mux_ld File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/mux_ld.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file memory.v
+    Info (12023): Found entity 1: memory File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file fetch.v
+    Info (12023): Found entity 1: fetch File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file execute.v
+    Info (12023): Found entity 1: execute File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v Line: 2
+Info (12021): Found 1 design units, including 1 entities, in source file decode.v
+    Info (12023): Found entity 1: decode File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file data_memory.v
+    Info (12023): Found entity 1: data_memory File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file control.v
+    Info (12023): Found entity 1: control File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file branch_control.v
+    Info (12023): Found entity 1: branch_control File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/branch_control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file alu.v
+    Info (12023): Found entity 1: alu File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file instruction_memory.v
+    Info (12023): Found entity 1: instruction_memory File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v Line: 40
+Info (12127): Elaborating entity "procesadorJOF32_top" for the top level hierarchy
+Info (12128): Elaborating entity "decode" for hierarchy "decode:b2v_inst" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 104
+Info (12128): Elaborating entity "sign_extend" for hierarchy "decode:b2v_inst|sign_extend:sign" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v Line: 50
+Info (12128): Elaborating entity "n_bit_comparator" for hierarchy "decode:b2v_inst|n_bit_comparator:comp" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v Line: 55
+Info (12128): Elaborating entity "register_memory" for hierarchy "decode:b2v_inst|register_memory:reg_mem" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/decode.v Line: 67
+Info (12128): Elaborating entity "altsyncram" for hierarchy "decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1"
+Info (12130): Elaborated megafunction instantiation "decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1"
+Info (12133): Instantiated megafunction "decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1" with the following parameter:
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "4"
+    Info (12134): Parameter "NUMWORDS_A" = "16"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "4"
+    Info (12134): Parameter "NUMWORDS_B" = "16"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mvj1.tdf
+    Info (12023): Found entity 1: altsyncram_mvj1 File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_mvj1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_mvj1" for hierarchy "decode:b2v_inst|register_memory:reg_mem|altsyncram:mem[0][31]__1|altsyncram_mvj1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "registro_id_ex" for hierarchy "registro_id_ex:b2v_inst10" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 134
+Info (12128): Elaborating entity "registro_mem_wb" for hierarchy "registro_mem_wb:b2v_inst11" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 148
+Info (12128): Elaborating entity "fetch" for hierarchy "fetch:b2v_inst12" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 157
+Info (12128): Elaborating entity "muxpc" for hierarchy "fetch:b2v_inst12|muxpc:mpc" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v Line: 24
+Info (12128): Elaborating entity "sumador1" for hierarchy "fetch:b2v_inst12|sumador1:sum1" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v Line: 28
+Info (12128): Elaborating entity "register_pc" for hierarchy "fetch:b2v_inst12|register_pc:regPC" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v Line: 34
+Info (12128): Elaborating entity "instruction_memory" for hierarchy "fetch:b2v_inst12|instruction_memory:intMem" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v Line: 39
+Info (12128): Elaborating entity "altsyncram" for hierarchy "fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v Line: 82
+Info (12130): Elaborated megafunction instantiation "fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v Line: 82
+Info (12133): Instantiated megafunction "fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/instruction_memory.v Line: 82
+    Info (12134): Parameter "address_aclr_a" = "NONE"
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "fuerza_bruta.hex"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "1024"
+    Info (12134): Parameter "operation_mode" = "ROM"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "widthad_a" = "10"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_otg1.tdf
+    Info (12023): Found entity 1: altsyncram_otg1 File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_otg1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_otg1" for hierarchy "fetch:b2v_inst12|instruction_memory:intMem|altsyncram:altsyncram_component|altsyncram_otg1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "branch_control" for hierarchy "fetch:b2v_inst12|branch_control:branch_c" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/fetch.v Line: 43
+Info (12128): Elaborating entity "registro_if_id" for hierarchy "registro_if_id:b2v_inst17" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 164
+Info (12128): Elaborating entity "control" for hierarchy "control:b2v_inst4" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 178
+Info (12128): Elaborating entity "write_back" for hierarchy "write_back:b2v_inst5" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 206
+Info (12128): Elaborating entity "muxwb" for hierarchy "write_back:b2v_inst5|muxwb:mwb" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/write_back.v Line: 29
+Info (12128): Elaborating entity "registro_ex_mem" for hierarchy "registro_ex_mem:b2v_inst7" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 224
+Info (12128): Elaborating entity "memory" for hierarchy "memory:b2v_inst8" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 236
+Info (12128): Elaborating entity "mux_ld" for hierarchy "memory:b2v_inst8|mux_ld:m_ld" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v Line: 29
+Info (12128): Elaborating entity "data_memory" for hierarchy "memory:b2v_inst8|data_memory:data_mem" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/memory.v Line: 36
+Warning (10230): Verilog HDL assignment warning at data_memory.v(23): truncated value with size 32 to match size of target (16) File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v Line: 23
+Warning (10230): Verilog HDL assignment warning at data_memory.v(36): truncated value with size 32 to match size of target (2) File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v Line: 36
+Info (12128): Elaborating entity "ram_1port" for hierarchy "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/data_memory.v Line: 30
+Info (12128): Elaborating entity "altsyncram" for hierarchy "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v Line: 86
+Info (12130): Elaborated megafunction instantiation "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v Line: 86
+Info (12133): Instantiated megafunction "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component" with the following parameter: File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/ram_1port.v Line: 86
+    Info (12134): Parameter "clock_enable_input_a" = "BYPASS"
+    Info (12134): Parameter "clock_enable_output_a" = "BYPASS"
+    Info (12134): Parameter "init_file" = "Lorem_Ipsum_64Kb.hex"
+    Info (12134): Parameter "intended_device_family" = "Cyclone V"
+    Info (12134): Parameter "lpm_hint" = "ENABLE_RUNTIME_MOD=NO"
+    Info (12134): Parameter "lpm_type" = "altsyncram"
+    Info (12134): Parameter "numwords_a" = "65536"
+    Info (12134): Parameter "operation_mode" = "SINGLE_PORT"
+    Info (12134): Parameter "outdata_aclr_a" = "NONE"
+    Info (12134): Parameter "outdata_reg_a" = "UNREGISTERED"
+    Info (12134): Parameter "power_up_uninitialized" = "FALSE"
+    Info (12134): Parameter "read_during_write_mode_port_a" = "NEW_DATA_NO_NBE_READ"
+    Info (12134): Parameter "widthad_a" = "16"
+    Info (12134): Parameter "width_a" = "32"
+    Info (12134): Parameter "width_byteena_a" = "1"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_8ip1.tdf
+    Info (12023): Found entity 1: altsyncram_8ip1 File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_8ip1.tdf Line: 34
+Info (12128): Elaborating entity "altsyncram_8ip1" for hierarchy "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated" File: c:/intelfpga_lite/16.1/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_dla.tdf
+    Info (12023): Found entity 1: decode_dla File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/decode_dla.tdf Line: 23
+Info (12128): Elaborating entity "decode_dla" for hierarchy "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|decode_dla:decode3" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_8ip1.tdf Line: 44
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_61a.tdf
+    Info (12023): Found entity 1: decode_61a File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/decode_61a.tdf Line: 23
+Info (12128): Elaborating entity "decode_61a" for hierarchy "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|decode_61a:rden_decode" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_8ip1.tdf Line: 45
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_ahb.tdf
+    Info (12023): Found entity 1: mux_ahb File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/mux_ahb.tdf Line: 23
+Info (12128): Elaborating entity "mux_ahb" for hierarchy "memory:b2v_inst8|data_memory:data_mem|ram_1port:ram|altsyncram:altsyncram_component|altsyncram_8ip1:auto_generated|mux_ahb:mux2" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/altsyncram_8ip1.tdf Line: 46
+Info (12128): Elaborating entity "execute" for hierarchy "execute:b2v_inst9" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v Line: 251
+Info (12128): Elaborating entity "alu" for hierarchy "execute:b2v_inst9|alu:alu" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v Line: 37
+Info (12128): Elaborating entity "muxalu" for hierarchy "execute:b2v_inst9|muxalu:mux_alu" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v Line: 45
+Info (12128): Elaborating entity "muxexe" for hierarchy "execute:b2v_inst9|muxexe:MuxExe" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/execute.v Line: 52
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "execute:b2v_inst9|alu:alu|Div0" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v Line: 43
+Info (12130): Elaborated megafunction instantiation "execute:b2v_inst9|alu:alu|lpm_divide:Div0" File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v Line: 43
+Info (12133): Instantiated megafunction "execute:b2v_inst9|alu:alu|lpm_divide:Div0" with the following parameter: File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/alu.v Line: 43
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_3dm.tdf
+    Info (12023): Found entity 1: lpm_divide_3dm File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/lpm_divide_3dm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_9nh File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/sign_div_unsign_9nh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/Javier/Documents/Altera/ProcesadorJOF32/db/alt_u_div_o2f.tdf Line: 23
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/Javier/Documents/Altera/ProcesadorJOF32/output_files/procesadorJOF32_top.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 2698 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 1 input pins
+    Info (21059): Implemented 32 output pins
+    Info (21061): Implemented 2311 logic cells
+    Info (21064): Implemented 352 RAM segments
+    Info (21062): Implemented 2 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 749 megabytes
+    Info: Processing ended: Tue Oct 17 05:33:06 2017
+    Info: Elapsed time: 00:00:42
+    Info: Total CPU time (on all processors): 00:01:06
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/Javier/Documents/Altera/ProcesadorJOF32/output_files/procesadorJOF32_top.map.smsg.
+
+

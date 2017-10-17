@@ -15,7 +15,7 @@ int main(void)
 	int* data = (int*) malloc(sizeof(int) * R_LENGTH);
 
 	/*** -Matriz para almacenar etiqueta junto a su direccion en memoria- ***/
-	int n_arr = 10, n_char = 15; /* 10 arreglos de strings con 15 caracteres c/u */
+	int n_arr = 10, n_char = 22; /* 10 arreglos de strings con 15 caracteres c/u */
 	char* word = (char*) malloc(sizeof(char) * n_char);
 	char*** mem_adrrs = calloc(n_arr, sizeof(char**) );
 	for(int i = 0; i < n_arr; i++) {
@@ -25,34 +25,45 @@ int main(void)
     	}
 	}
 
+	/* Estructura que almacena las direcciones del algoritmo FB */
+	mem_adrrs = assignAddresses(mem_adrrs);
+
 	while(ntoken) {
 		printf("Token %d\n", ntoken);
-		if (ntoken == TARGET) {
-      word = yytext;
+		if ( ntoken == TARGET ) {
+			if (data[0] == BEQ || data[0] == BNE
+						|| data[0] == J )  {
+	      word = yytext;
+				printf("word %s\n", word);
+			}
+
     }
 
 		/* Se verifica si el token es un indicador */
-		if (ntoken == INDICATOR) {
+		else if (ntoken == INDICATOR) {
 			/* Formato R */
 			if (ADD <= data[0] && data[0] <= DIV) {
 				analizeInstructionR(data);
 			}
 			/* Formato I */
 			else if (BEQ <= data[0] && data[0] <= ADDI) {
-				analizeInstructionI(data);
+				if (data[0] == BEQ || data[0] == BNE) {
+					data[3] = findAddress(word, mem_adrrs);
+					printf("addr %d\n", data[3]);
+					analizeInstructionI(data);
+				} else analizeInstructionI(data);
 			}
 			/* Formato J */
 			else if (data[0] == J) {
-				/*****buscar address de la etiqueta y pasar por param*/
-				printf("target: %s\n", word);
         int addr = findAddress(word, mem_adrrs);
+				printf("addr %d\n", addr);
 				analizeInstructionJ(data, addr);
 			}
 			/* STALL */
 			else if (data[0] == NOP) {
 				noOperation();
 			}
-			else if (data[0] != TARGET){
+			else if (data[0] != TARGET) {
 				printf("This instruction doesn't exit, in line %d\n",line);
 			  break;
 			}
@@ -64,21 +75,14 @@ int main(void)
 		/* Si se está analizando una etiqueta, calcula la dirección
 		 			de	memoria*/
 		else if (ntoken == TP) {
-			int mem_addr = line * 4;
-  		char add_str[5];
-  		sprintf(add_str, "%d", mem_addr);
-			mem_adrrs[target][0] = word;
-			mem_adrrs[target][1] = add_str;
-			target++;
       memset(data, '\0', (R_LENGTH * sizeof(int)));
-      printf("target: %s\n", word);
-      printf("direccion: %s\n", add_str);
 			index = 0;
 			line++;
 		}
+
 		else {
 			if (ntoken == IMMEDIATE) { data[index] = atoi(yytext); }
-			else { data[index] = ntoken; }
+			else if (ntoken != TARGET) { data[index] = ntoken; }
 			index++;
 		}
 		ntoken = yylex();

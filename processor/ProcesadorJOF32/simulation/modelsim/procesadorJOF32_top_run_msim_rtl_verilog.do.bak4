@@ -1,0 +1,34 @@
+transcript on
+if {[file exists rtl_work]} {
+	vdel -lib rtl_work -all
+}
+vlib rtl_work
+vmap work rtl_work
+
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32 {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/procesadorJOF32_top.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Memory {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Memory/Data_Memory.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Memory {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Memory/Mux_LD.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode/Control.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers/Registro_IF_ID.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers/Registro_ID_EX.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch/Sumador1.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch/Register_PC.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch/MuxPC.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch/Instruction_Memory.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch/Fetch.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute/MuxExe.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute/MuxALU.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute/Execute.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Execute/ALU.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode/Sign_extend.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode/Register_Memory.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode/n_bit_comparator.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Decode/Decode.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers/Registro_EX_MEM.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Memory {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Memory/Memory.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Registers/Registro_MEM_WB.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-WriteBack {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-WriteBack/MuxWB.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-WriteBack {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-WriteBack/Write_Back.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/JOF32-Fetch/Branch_Control.v}
+vlog -vlog01compat -work work +incdir+C:/Users/Javier/Documents/Altera/ProcesadorJOF32 {C:/Users/Javier/Documents/Altera/ProcesadorJOF32/Ram_1port.v}
+

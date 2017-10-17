@@ -1,0 +1,10 @@
+`timescale 1ns / 1ps
+
+module MuxPC (pc_fetch, pc_deco, clk, dir_sl, sel_pc);
+
+input wire pc_fetch, pc_deco, clk, dir_sl;
+output wire sel_pc;
+
+assign sel_pc = dir_sl ? pc_deco : pc_fetch;
+
+endmodule

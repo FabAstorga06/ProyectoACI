@@ -1,0 +1,15 @@
+`timescale 1ns / 1ps
+
+module Register_PC (clk, pc_in, pc_out);
+
+input wire pc_in, clk;
+output wire pc_out;
+reg [31:0] pc;
+
+always @(posedge clk)
+    assign pc = pc_in;
+
+always @(negedge clk)
+    assign pc_out = pc;
+
+endmodule

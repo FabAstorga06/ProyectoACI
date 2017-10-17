@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Tue Oct 17 05:33:05 2017
+Quartus Prime Version : 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Revision Name : procesadorJOF32_top
+Top-level Entity Name : procesadorJOF32_top
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 674
+Total pins : 33
+Total virtual pins : 0
+Total block memory bits : 2,130,944
+Total DSP Blocks : 2
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

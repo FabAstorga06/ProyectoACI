@@ -12,7 +12,6 @@ char* convertBinary(unsigned int num, int pivot, int digits) {
 	unsigned int bit = 1U << (sizeof(unsigned int) + pivot);
 	char* bin = (char*) malloc( sizeof(char) * digits);
 
-	/***AQUI ESTA EL ERROR****/
 	while ( bit ) {
 			bin[index] = (num & bit) ? '1' : '0';
 			//printf("binaria longitud: %d\n", strlen(bin));
@@ -60,24 +59,35 @@ int* swap(int *data, int pos1, int pos2) {
 }
 
 /*************************************************************************/
-/* Funcion que enceuntra una direccion de memoria */
 
-char* deleteChar(char* param, int len) {
-  char* tmp_param = (char*) malloc(sizeof(char) * 15);
-  for (int i = 0; i < len; i++) {
-    if(param[i] == ':' || param[i] == '.') break;
-    else tmp_param[i] = param[i];
-  }
-  return tmp_param;
+/* Funcion que asigna las direcciones de memoria predeterminadas */
+
+char*** assignAddresses(char*** mem) {
+  mem[0][0] = "comprobacionCuenta.";
+  mem[0][1] = "4";
+  mem[1][0] = "eof.";
+  mem[1][1] = "7";
+  mem[2][0] = "comprobacionIguales.";
+  mem[2][1] = "11";
+  mem[3][0] = "iguales.";
+  mem[3][1] = "16";
+  mem[4][0] = "contar.";
+  mem[4][1] = "26";
+  mem[5][0] = "diferentes.";
+  mem[5][1] = "29";
+  mem[6][0] = "fin.";
+  mem[6][1] = "35";
+  return mem;
 }
+
+/* Funcion que enceuntra una direccion de memoria */
 
 int findAddress(char* target, char*** mem_adrrs) {
   int address = 0;
-  char* tmp_target = deleteChar(target, 15);
-  char* tmp_adrrs;
+  printf("target: %s\n", target);
   for (int i = 0; i < 10; i++) {
-    tmp_adrrs = deleteChar(mem_adrrs[i][0], 15);
-    int ret = strcmp(tmp_adrrs, tmp_target);
+    int ret = strcmp(mem_adrrs[i][0], target);
+    printf("ret: %d\n", ret);
     if (ret == 0) {
         address = atoi(mem_adrrs[i][1]);
         break;
@@ -92,7 +102,7 @@ int findAddress(char* target, char*** mem_adrrs) {
 /* Analiza instruccion de formato R */
 void analizeInstructionR(int* data) {
   int* tmp_data;
-  char* r_instr = (char*) malloc( sizeof(char) * INSTR );
+  char* r_instr = (char*) malloc( sizeof(char) * 32 );
   /* Instrucciones SLL, SRL, ... */
   if (data[0] == SLL || data[0] == SRL) {
     /* Ordena tokens en formato R */
@@ -129,10 +139,12 @@ void analizeInstructionR(int* data) {
 /* Analiza instruccion de formato I */
 void analizeInstructionI(int* data) {
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* i_instr = (char*) malloc( sizeof(char) * INSTR);
+  char* i_instr = (char*) malloc( sizeof(char) * 32);
   /* Instrucciones BEQ, BNE, ... */
-  if (data[0] == BEQ || data[0] == BNE) {
+  if (data[0] == BEQ || data[0] == BNE || data[0] == ADDI) {
     for (int i = 0; i < R_LENGTH; i++) {
+      printf("Data: %d\n", data[i]);
+      printf("instr: %s\n", i_instr);
       if (i == 0) i_instr = concatenate(i_instr, convertBinary(data[i], 0, 5) );
       else if (i == 3) i_instr = concatenate(i_instr, convertBinary(data[i], 14, 19) );
       else i_instr = concatenate(i_instr, convertBinary(data[i], -1, 4) );
@@ -141,7 +153,7 @@ void analizeInstructionI(int* data) {
   /*************************************************************/
   /* Instrucciones LW, SW, ... */
   else {
-    int* tmp_data = (int*) malloc(sizeof(int) * R_LENGTH);
+    int* tmp_data = (int*) malloc(sizeof(int) * 4);
     /* Ordena tokens en formato I */
     tmp_data = swap(data, 1, 3);
     tmp_data = swap(data, 2, 3);
@@ -159,7 +171,7 @@ void analizeInstructionI(int* data) {
 /* Analiza instruccion de formato J */
 void analizeInstructionJ(int* data, int address) {
   /* Convierte a binario y mete la instruccion al archivo maquina */
-  char* j_instr = (char*) malloc( sizeof(char)* INSTR);
+  char* j_instr = (char*) malloc( sizeof(char)* 32);
   /*opcode*/
   j_instr = concatenate(j_instr, convertBinary(data[0], 0, 5) );
   /*direccion*/
@@ -170,7 +182,7 @@ void analizeInstructionJ(int* data, int address) {
 
 /* Crea la instrucción NOP para realizar un stall */
 void noOperation() {
-  char* instr = (char*) malloc(sizeof(char) * INSTR);
+  char* instr = (char*) malloc(sizeof(char) * 32);
   instr = concatenate(instr, "11111" );
   instr = concatenate(instr, "000000000000000000000000000" );
   addInstructionToFile(instr);

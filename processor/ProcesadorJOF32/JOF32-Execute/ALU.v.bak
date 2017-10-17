@@ -1,0 +1,33 @@
+`timescale 1ns / 1ps
+
+module ALU(
+    a,b,
+    opcode,
+    resultado,
+    );
+
+input wire [31:0] a,b;
+input wire [5:0] opcode;
+output reg [31:0] resultado;
+
+always @*
+begin
+    case (opcode)
+    00000: resultado = a + b;   // ADD
+    00001: resultado = a - b;   // SUB
+    00010: resultado = a & b;   // AND
+    00011: resultado = a | b;   // OR
+    00100: resultado = a ~| b;  // NOR
+    00101: resultado = a << b;  // SLL
+    00110: resultado = a >> b;  // SRL
+    00111: resultado = a * b;   // MULT
+    01000: resultado = a / b;   // DIV
+    01001: resultado = 32'b0;   // BEQ
+    01010: resultado = 32'b0;   // BNE
+    01011: resultado = a + b;   // LW a: RS  b: OFFSET
+    01100: resultado = a + b;   // LB a: RS  b: OFFSET
+    01101: resultado = a + b;   // SW a: RS  b: OFFSET
+    01110: resultado = 32'b0;   // J
+    11111: resultado = 32'b0;   // NOP
+    endcase
+end

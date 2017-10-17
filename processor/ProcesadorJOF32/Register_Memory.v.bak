@@ -1,0 +1,22 @@
+`timescale 1ns / 1ps
+
+module Register_Memory ( // ROM de 256 x 32
+    input clk,
+    input wire [31:0] pc,
+    output wire [31:0] instruction
+);
+
+// Memoria de 1024 instrucciones
+reg [31:0] rom [0:1023];
+
+always @*
+begin
+    instruction <= rom[pc];
+end
+
+initial begin
+    // Se ingresan los datos del programa aquí
+    // $readmemb("instr.txt", instrmem);
+end
+
+endmodule

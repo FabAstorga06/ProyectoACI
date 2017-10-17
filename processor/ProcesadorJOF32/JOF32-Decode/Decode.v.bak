@@ -1,0 +1,25 @@
+module Decode ();
+
+
+
+
+
+
+
+Zero_extend zer(.extend(),
+					 .extended()//va al sumador de PC
+						);
+
+Sign_extend sign(
+					);
+
+n_bit_comparator comp(
+					);
+n_bit_adder sum(
+				);
+				
+Register_Memory(
+					); 
+
+
+

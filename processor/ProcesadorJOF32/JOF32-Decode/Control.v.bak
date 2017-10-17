@@ -1,0 +1,18 @@
+module control (clk)
+
+
+
+
+parameter estado_IF=0, estado_ID=1, estado_EXE=2, estado_MEM=3, estado_WB=4;
+
+parameter 
+always (posedge clk)
+begin
+
+
+
+
+
+
+end
+endmodule

@@ -1,0 +1,50 @@
+/*Registros
+ *  R0  -> Registro que sirve de puntero para el texto.
+ *  R1  -> Registro que sirve de puntero para el patrón.
+ *  R2  -> Registro que almacena el valor de la dirección de memoria R0
+ *  R3  -> Registro que almacena el valor de la dirección de memoria R1
+ *  R4  -> Registro que sirve de índice para recorrer el patrón.
+ *  R13 -> Regisatro que contiene el largo del patrón.
+ *  R14 -> Registro que funciona de cero (en realidad cualquier registro no editado funciona como cero)
+ *  R15 -> Registro que almacena el resultado de coincidencias entre el patrón y el texto
+*/
+
+addi R0, R0, 0 // Inicio de la memoria que marca el inicio del texto
+addi R1, R1, 31250 // Puntero al inicio del patrón
+addi R13, R13, 2 // Largo del patrón
+addi R4, R4, 1 // Contador del byte del patron (index patrón)
+
+// Compara la igualdad de R2 y R3
+
+comprobacionCuenta:             // Comprueba si el largo del patrón y el índice del patrón coinciden. So lo hacen, cuenta.
+beq R13, R4, contar.
+
+eof:                            //end of file?
+addi R12, R14, 31250.
+beq R0, R12, fin.
+
+comprobacionIguales:
+lb R2, 0(R0).                   // CARGA EN UN REGISTRO EL INICIO DEL TEXTO (byte)
+lb R3, 0(R1).                   // CARGA EN UN REGISTRO EL INICIO DEL PATRON (byte)
+bne R2, R3, diferentes.
+
+iguales:                        // Cuando hay coincidencia aumenta en 1 el índice del patrón. Aumenta en 1 los punteros a memoria para continuar la ejecución
+addi R1, R1, 1.
+addi R0, R0, 1.
+addi R4, R4, 1.
+beq R13, R4, contar.
+j eof.                          // Brinca a end of file para comprobar si la ejecución debe terminar.
+
+contar:                         // Sección que cuenta en R15 la cantidad de veces que hay coincidencias.
+addi R15, R15, 1.
+addi R4, R14, 1.
+addi R1, R14, 31250.
+
+diferentes:                     // Cuando el byte del patrón comparado con el byte del texto son diferentes, se aumenta el íncide del texto en 1,
+                                // pero se restablece el del patrón.
+addi R0, R0, 1.
+addi R1, R14, 31250.
+j eof.
+
+
+fin:                        // Fin de la ejecución
